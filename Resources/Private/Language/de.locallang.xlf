@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext"
+		  original="EXT:ot_gallery/Resources/Private/Language/locallang.xlf"
+		  date="2026-03-10T00:00:00Z" product-name="ot_gallery">
+		<header/>
+		<body>
+			<trans-unit id="gallery.imageCount" resname="gallery.imageCount">
+				<source>Page %1s of %2s, images %3s to %4s of a total of %5s</source>
+				<target>Seite %1s von %2s, Bilder %3s bis %4s von insgesamt %5s</target>
+			</trans-unit>
+			<trans-unit id="gallery.openImage" resname="gallery.openImage">
+				<source>Open image in lightbox</source>
+				<target>Bild in Lightbox öffnen</target>
+			</trans-unit>
+			<trans-unit id="gallery.showInfo" resname="gallery.showInfo">
+				<source>Show image information</source>
+				<target>Bildinformationen anzeigen</target>
+			</trans-unit>
+			<trans-unit id="gallery.menu.label" resname="gallery.menu.label">
+				<source>Options for image</source>
+				<target>Optionen für Bild</target>
+			</trans-unit>
+			<trans-unit id="gallery.download" resname="gallery.download">
+				<source>Download image</source>
+				<target>Bild herunterladen</target>
+			</trans-unit>
+			<trans-unit id="gallery.download.image" resname="gallery.download.image">
+				<source>Download image</source>
+				<target>Bild herunterladen</target>
+			</trans-unit>
+			<trans-unit id="gallery.empty" resname="gallery.empty">
+				<source>No images found.</source>
+				<target>Keine Bilder gefunden.</target>
+			</trans-unit>
+			<trans-unit id="gallery.copyright" resname="gallery.copyright">
+				<source>Copyright</source>
+				<target>Copyright</target>
+			</trans-unit>
+			<trans-unit id="gallery.exif.camera" resname="gallery.exif.camera">
+				<source>Camera</source>
+				<target>Kamera</target>
+			</trans-unit>
+			<trans-unit id="gallery.exif.aperture" resname="gallery.exif.aperture">
+				<source>Aperture</source>
+				<target>Blende</target>
+			</trans-unit>
+			<trans-unit id="gallery.exif.shutter" resname="gallery.exif.shutter">
+				<source>Shutter Speed</source>
+				<target>Verschlusszeit</target>
+			</trans-unit>
+			<trans-unit id="gallery.exif.iso" resname="gallery.exif.iso">
+				<source>ISO</source>
+				<target>ISO</target>
+			</trans-unit>
+			<trans-unit id="gallery.exif.date" resname="gallery.exif.date">
+				<source>Date</source>
+				<target>Datum</target>
+			</trans-unit>
+			<trans-unit id="gallery.pagination.previous" resname="gallery.pagination.previous">
+				<source>Previous page</source>
+				<target>Vorherige Seite</target>
+			</trans-unit>
+			<trans-unit id="gallery.pagination.next" resname="gallery.pagination.next">
+				<source>Next page</source>
+				<target>Nächste Seite</target>
+			</trans-unit>
+			<trans-unit id="gallery.pagination.page" resname="gallery.pagination.page">
+				<source>Page</source>
+				<target>Seite</target>
+			</trans-unit>
+			<trans-unit id="gallery.pagination.of" resname="gallery.pagination.of">
+				<source>of</source>
+				<target>von</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+	<file source-language="en" target-language="de" datatype="plaintext"
+		  original="EXT:ot_gallery/Configuration/Sets/OtGallery/labels.xlf"
+		  date="2026-03-10T00:00:00Z" product-name="ot_gallery">
+		<header/>
+		<body>
+			<!-- SiteSet label -->
+			<trans-unit id="label" resname="label">
+				<source>Gallery</source>
+				<target>Galerie</target>
+			</trans-unit>
+
+			<!-- Categories -->
+			<trans-unit id="categories.OtGallery" resname="categories.OtGallery">
+				<source>Gallery</source>
+				<target>Galerie</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.grid" resname="categories.OtGallery.grid">
+				<source>Grid</source>
+				<target>Raster</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.grid.breakpoints" resname="categories.OtGallery.grid.breakpoints">
+				<source>Columns per Breakpoint</source>
+				<target>Spalten pro Breakpoint</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.grid.container" resname="categories.OtGallery.grid.container">
+				<source>Container</source>
+				<target>Container</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.thumbnail" resname="categories.OtGallery.thumbnail">
+				<source>Thumbnail</source>
+				<target>Vorschaubild</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.lightbox" resname="categories.OtGallery.lightbox">
+				<source>Lightbox</source>
+				<target>Lightbox</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.metadata" resname="categories.OtGallery.metadata">
+				<source>Metadata</source>
+				<target>Metadaten</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.pagination" resname="categories.OtGallery.pagination">
+				<source>Pagination</source>
+				<target>Seitenumbruch</target>
+			</trans-unit>
+			<trans-unit id="categories.OtGallery.processing" resname="categories.OtGallery.processing">
+				<source>Image Processing</source>
+				<target>Bildverarbeitung</target>
+			</trans-unit>
+
+			<!-- Grid - Columns per breakpoint -->
+			<trans-unit id="settings.otGallery.grid.columns.xs" resname="settings.otGallery.grid.columns.xs">
+				<source>Columns XS</source>
+				<target>Spalten XS</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.columns.xs" resname="settings.description.otGallery.grid.columns.xs">
+				<source>Number of columns on extra small screens (&lt;576px).</source>
+				<target>Anzahl der Spalten auf sehr kleinen Bildschirmen (&lt;576px).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.columns.sm" resname="settings.otGallery.grid.columns.sm">
+				<source>Columns SM</source>
+				<target>Spalten SM</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.columns.sm" resname="settings.description.otGallery.grid.columns.sm">
+				<source>Number of columns on small screens (≥576px).</source>
+				<target>Anzahl der Spalten auf kleinen Bildschirmen (≥576px).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.columns.md" resname="settings.otGallery.grid.columns.md">
+				<source>Columns MD</source>
+				<target>Spalten MD</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.columns.md" resname="settings.description.otGallery.grid.columns.md">
+				<source>Number of columns on medium screens (≥768px).</source>
+				<target>Anzahl der Spalten auf mittleren Bildschirmen (≥768px).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.columns.lg" resname="settings.otGallery.grid.columns.lg">
+				<source>Columns LG</source>
+				<target>Spalten LG</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.columns.lg" resname="settings.description.otGallery.grid.columns.lg">
+				<source>Number of columns on large screens (≥992px).</source>
+				<target>Anzahl der Spalten auf großen Bildschirmen (≥992px).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.columns.xl" resname="settings.otGallery.grid.columns.xl">
+				<source>Columns XL</source>
+				<target>Spalten XL</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.columns.xl" resname="settings.description.otGallery.grid.columns.xl">
+				<source>Number of columns on extra large screens (≥1200px).</source>
+				<target>Anzahl der Spalten auf sehr großen Bildschirmen (≥1200px).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.columns.xxl" resname="settings.otGallery.grid.columns.xxl">
+				<source>Columns XXL</source>
+				<target>Spalten XXL</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.columns.xxl" resname="settings.description.otGallery.grid.columns.xxl">
+				<source>Number of columns on extra extra large screens (≥1400px).</source>
+				<target>Anzahl der Spalten auf extra großen Bildschirmen (≥1400px).</target>
+			</trans-unit>
+
+			<!-- Grid - Gutter -->
+			<trans-unit id="settings.otGallery.grid.gutter" resname="settings.otGallery.grid.gutter">
+				<source>Gutter</source>
+				<target>Spaltenabstand</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.gutter" resname="settings.description.otGallery.grid.gutter">
+				<source>Gap between columns in pixels.</source>
+				<target>Abstand zwischen den Spalten in Pixeln.</target>
+			</trans-unit>
+
+			<!-- Grid - Container -->
+			<trans-unit id="settings.otGallery.grid.container.padding" resname="settings.otGallery.grid.container.padding">
+				<source>Container Padding</source>
+				<target>Container-Innenabstand</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.container.padding" resname="settings.description.otGallery.grid.container.padding">
+				<source>Container padding per side in pixels (total = 2x this value).</source>
+				<target>Container-Innenabstand pro Seite in Pixeln (gesamt = 2x dieser Wert).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.container.sm.maxWidth" resname="settings.otGallery.grid.container.sm.maxWidth">
+				<source>Container Max-Width SM</source>
+				<target>Container Max-Breite SM</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.container.sm.maxWidth" resname="settings.description.otGallery.grid.container.sm.maxWidth">
+				<source>Maximum container width in pixels at the SM breakpoint (Bootstrap 5 default: 540).</source>
+				<target>Maximale Container-Breite in Pixeln beim SM-Breakpoint (Bootstrap 5 Standard: 540).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.container.md.maxWidth" resname="settings.otGallery.grid.container.md.maxWidth">
+				<source>Container Max-Width MD</source>
+				<target>Container Max-Breite MD</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.container.md.maxWidth" resname="settings.description.otGallery.grid.container.md.maxWidth">
+				<source>Maximum container width in pixels at the MD breakpoint (Bootstrap 5 default: 720).</source>
+				<target>Maximale Container-Breite in Pixeln beim MD-Breakpoint (Bootstrap 5 Standard: 720).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.container.lg.maxWidth" resname="settings.otGallery.grid.container.lg.maxWidth">
+				<source>Container Max-Width LG</source>
+				<target>Container Max-Breite LG</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.container.lg.maxWidth" resname="settings.description.otGallery.grid.container.lg.maxWidth">
+				<source>Maximum container width in pixels at the LG breakpoint (Bootstrap 5 default: 960).</source>
+				<target>Maximale Container-Breite in Pixeln beim LG-Breakpoint (Bootstrap 5 Standard: 960).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.container.xl.maxWidth" resname="settings.otGallery.grid.container.xl.maxWidth">
+				<source>Container Max-Width XL</source>
+				<target>Container Max-Breite XL</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.container.xl.maxWidth" resname="settings.description.otGallery.grid.container.xl.maxWidth">
+				<source>Maximum container width in pixels at the XL breakpoint (Bootstrap 5 default: 1140).</source>
+				<target>Maximale Container-Breite in Pixeln beim XL-Breakpoint (Bootstrap 5 Standard: 1140).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.grid.container.xxl.maxWidth" resname="settings.otGallery.grid.container.xxl.maxWidth">
+				<source>Container Max-Width XXL</source>
+				<target>Container Max-Breite XXL</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.grid.container.xxl.maxWidth" resname="settings.description.otGallery.grid.container.xxl.maxWidth">
+				<source>Maximum container width in pixels at the XXL breakpoint (Bootstrap 5 default: 1320).</source>
+				<target>Maximale Container-Breite in Pixeln beim XXL-Breakpoint (Bootstrap 5 Standard: 1320).</target>
+			</trans-unit>
+
+			<!-- Thumbnail -->
+			<trans-unit id="settings.otGallery.thumbnail.aspectRatio" resname="settings.otGallery.thumbnail.aspectRatio">
+				<source>Thumbnail Aspect Ratio</source>
+				<target>Seitenverhältnis der Vorschaubilder</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.thumbnail.aspectRatio" resname="settings.description.otGallery.thumbnail.aspectRatio">
+				<source>Default aspect ratio for gallery thumbnails.</source>
+				<target>Standard-Seitenverhältnis für Galerie-Vorschaubilder.</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.thumbnail.rendering" resname="settings.otGallery.thumbnail.rendering">
+				<source>Thumbnail Rendering</source>
+				<target>Darstellung der Vorschaubilder</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.thumbnail.rendering" resname="settings.description.otGallery.thumbnail.rendering">
+				<source>How thumbnails are scaled to fit their aspect ratio.</source>
+				<target>Wie Vorschaubilder auf ihr Seitenverhältnis skaliert werden.</target>
+			</trans-unit>
+
+			<!-- Lightbox -->
+			<trans-unit id="settings.otGallery.lightbox.provider" resname="settings.otGallery.lightbox.provider">
+				<source>Lightbox Provider</source>
+				<target>Lightbox-Anbieter</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.lightbox.provider" resname="settings.description.otGallery.lightbox.provider">
+				<source>JavaScript library used to display images in a lightbox overlay.</source>
+				<target>JavaScript-Bibliothek zur Anzeige von Bildern in einer Lightbox-Überlagerung.</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.lightbox.dataAttribute" resname="settings.otGallery.lightbox.dataAttribute">
+				<source>Lightbox Data Attribute</source>
+				<target>Lightbox-Datenattribut</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.lightbox.dataAttribute" resname="settings.description.otGallery.lightbox.dataAttribute">
+				<source>HTML data attribute added to gallery links to activate the lightbox (e.g. data-fancybox).</source>
+				<target>HTML-Datenattribut, das Galerie-Links hinzugefügt wird, um die Lightbox zu aktivieren (z. B. data-fancybox).</target>
+			</trans-unit>
+
+			<!-- Metadata -->
+			<trans-unit id="settings.otGallery.metadata.showTitle" resname="settings.otGallery.metadata.showTitle">
+				<source>Show Title</source>
+				<target>Titel anzeigen</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.metadata.showTitle" resname="settings.description.otGallery.metadata.showTitle">
+				<source>Show the image title below each thumbnail by default.</source>
+				<target>Den Bildtitel standardmäßig unter jedem Vorschaubild anzeigen.</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.metadata.showDescription" resname="settings.otGallery.metadata.showDescription">
+				<source>Show Description</source>
+				<target>Beschreibung anzeigen</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.metadata.showDescription" resname="settings.description.otGallery.metadata.showDescription">
+				<source>Show the image description below each thumbnail by default.</source>
+				<target>Die Bildbeschreibung standardmäßig unter jedem Vorschaubild anzeigen.</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.metadata.showCopyright" resname="settings.otGallery.metadata.showCopyright">
+				<source>Show Copyright</source>
+				<target>Copyright anzeigen</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.metadata.showCopyright" resname="settings.description.otGallery.metadata.showCopyright">
+				<source>Show the copyright notice below each thumbnail by default.</source>
+				<target>Den Copyright-Hinweis standardmäßig unter jedem Vorschaubild anzeigen.</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.metadata.showExif" resname="settings.otGallery.metadata.showExif">
+				<source>Show EXIF Data</source>
+				<target>EXIF-Daten anzeigen</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.metadata.showExif" resname="settings.description.otGallery.metadata.showExif">
+				<source>Show EXIF metadata (camera, aperture, shutter speed, ISO) by default.</source>
+				<target>EXIF-Metadaten (Kamera, Blende, Verschlusszeit, ISO) standardmäßig anzeigen.</target>
+			</trans-unit>
+
+			<!-- Pagination -->
+			<trans-unit id="settings.otGallery.pagination.itemsPerPage" resname="settings.otGallery.pagination.itemsPerPage">
+				<source>Items per Page</source>
+				<target>Elemente pro Seite</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.pagination.itemsPerPage" resname="settings.description.otGallery.pagination.itemsPerPage">
+				<source>Default number of images per page. Can be overridden per content element.</source>
+				<target>Standardanzahl der Bilder pro Seite. Kann pro Inhaltselement überschrieben werden.</target>
+			</trans-unit>
+
+			<!-- Processing -->
+			<trans-unit id="settings.otGallery.processing.hiDpi" resname="settings.otGallery.processing.hiDpi">
+				<source>HiDPI / Retina Support</source>
+				<target>HiDPI / Retina-Unterstützung</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.processing.hiDpi" resname="settings.description.otGallery.processing.hiDpi">
+				<source>Generate 2x images for HiDPI (Retina) displays.</source>
+				<target>2x-Bilder für HiDPI (Retina)-Displays generieren.</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.processing.webp.quality" resname="settings.otGallery.processing.webp.quality">
+				<source>WebP Quality</source>
+				<target>WebP-Qualität</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.processing.webp.quality" resname="settings.description.otGallery.processing.webp.quality">
+				<source>Quality setting for WebP image processing (1–100).</source>
+				<target>Qualitätseinstellung für die WebP-Bildverarbeitung (1–100).</target>
+			</trans-unit>
+
+			<trans-unit id="settings.otGallery.processing.jpeg.quality" resname="settings.otGallery.processing.jpeg.quality">
+				<source>JPEG Quality</source>
+				<target>JPEG-Qualität</target>
+			</trans-unit>
+			<trans-unit id="settings.description.otGallery.processing.jpeg.quality" resname="settings.description.otGallery.processing.jpeg.quality">
+				<source>Quality setting for JPEG image processing (1–100).</source>
+				<target>Qualitätseinstellung für die JPEG-Bildverarbeitung (1–100).</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

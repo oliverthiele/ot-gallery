@@ -1,0 +1,49 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{gallery.totalCount} > 0">
+    <section class="ot-gallery ot-gallery--{gallery.effectiveLayout} ot-content-element-margin-bottom"
+             aria-label="{data.header}"
+             data-gallery-uid="{data.uid}">
+
+        <f:render partial="Header" arguments="{_all}" />
+
+        <p class="ot-gallery__count visually-hidden" aria-live="polite">
+            <f:translate key="LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.imageCount"
+                         arguments="{
+                             0: '{gallery.paginator.currentPageNumber}',
+                             1: '{gallery.paginator.numberOfPages}',
+                             2: '{gallery.paginator.keyOfFirstPaginatedItem +1}',
+                             3: '{gallery.paginator.keyOfLastPaginatedItem +1}',
+                             5:  '{gallery.totalCount}'
+                         }" />
+        </p>
+
+        <ul class="ot-gallery__grid row g-3 {gallery.rowColsClasses}"
+            role="list">
+            <f:for each="{gallery.images}" as="image">
+                <li class="ot-gallery__item col" role="listitem">
+                    <f:render partial="Gallery/Image"
+                              arguments="{image: image, data: data, settings: settings, gallery: gallery}" />
+                </li>
+            </f:for>
+        </ul>
+
+        <f:if condition="{gallery.paginator.numberOfPages} > 1">
+            <div class="ot-gallery__footer">
+                <f:render partial="Gallery/Pagination"
+                          arguments="{pagination: gallery.pagination, paginator: gallery.paginator}" />
+            </div>
+        </f:if>
+
+    </section>
+</f:if>
+
+<f:if condition="{gallery.totalCount} == 0">
+    <p class="ot-gallery__empty">
+        <f:translate key="LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.empty"
+                     default="No images found." />
+    </p>
+</f:if>
+
+</html>

@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  OliverThiele\OtGallery\:
+    resource: '../Classes/*'
+
+  # DataProcessors must be public (instantiated via GeneralUtility::makeInstance())
+  OliverThiele\OtGallery\DataProcessing\GalleryProcessor:
+    public: true
+
+  # ViewHelpers must be public
+  OliverThiele\OtGallery\ViewHelpers\GallerySrcsetViewHelper:
+    public: true

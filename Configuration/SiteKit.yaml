@@ -1,0 +1,4 @@
+elements:
+  - ctype: ot_gallery
+    groups: [group_content_wide]
+    grid: { minCols: 6, requiresFullWidth: false }
