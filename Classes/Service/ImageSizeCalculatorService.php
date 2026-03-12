@@ -68,10 +68,10 @@ final class ImageSizeCalculatorService
 
         $breakpointMinWidths = [
             'xxl' => 1400,
-            'xl'  => 1200,
-            'lg'  => 992,
-            'md'  => 768,
-            'sm'  => 576,
+            'xl' => 1200,
+            'lg' => 992,
+            'md' => 768,
+            'sm' => 576,
         ];
 
         $parts = [];
@@ -107,11 +107,11 @@ final class ImageSizeCalculatorService
     public function generateRowColsClasses(array $settings, array $record = []): string
     {
         $breakpoints = [
-            'xs'  => '',
-            'sm'  => 'sm-',
-            'md'  => 'md-',
-            'lg'  => 'lg-',
-            'xl'  => 'xl-',
+            'xs' => '',
+            'sm' => 'sm-',
+            'md' => 'md-',
+            'lg' => 'lg-',
+            'xl' => 'xl-',
             'xxl' => 'xxl-',
         ];
 
@@ -135,20 +135,20 @@ final class ImageSizeCalculatorService
     {
         $relevant = [
             'columns' => [
-                'xs'  => $this->getColumnsForBreakpoint('xs', $settings, $record),
-                'sm'  => $this->getColumnsForBreakpoint('sm', $settings, $record),
-                'md'  => $this->getColumnsForBreakpoint('md', $settings, $record),
-                'lg'  => $this->getColumnsForBreakpoint('lg', $settings, $record),
-                'xl'  => $this->getColumnsForBreakpoint('xl', $settings, $record),
+                'xs' => $this->getColumnsForBreakpoint('xs', $settings, $record),
+                'sm' => $this->getColumnsForBreakpoint('sm', $settings, $record),
+                'md' => $this->getColumnsForBreakpoint('md', $settings, $record),
+                'lg' => $this->getColumnsForBreakpoint('lg', $settings, $record),
+                'xl' => $this->getColumnsForBreakpoint('xl', $settings, $record),
                 'xxl' => $this->getColumnsForBreakpoint('xxl', $settings, $record),
             ],
-            'gutter'          => $settings['otGallery']['grid']['gutter'] ?? 24,
+            'gutter' => $settings['otGallery']['grid']['gutter'] ?? 24,
             'containerPadding' => $settings['otGallery']['grid']['container']['padding'] ?? 12,
-            'hiDpi'           => $settings['otGallery']['processing']['hiDpi'] ?? true,
-            'webpQuality'     => $settings['otGallery']['processing']['webp']['quality'] ?? 82,
-            'jpegQuality'     => $settings['otGallery']['processing']['jpeg']['quality'] ?? 85,
-            'aspectRatio'     => $record['tx_otgallery_aspect_ratio'] ?? 'free',
-            'rendering'       => $record['tx_otgallery_rendering'] ?? 'cover',
+            'hiDpi' => $settings['otGallery']['processing']['hiDpi'] ?? true,
+            'webpQuality' => $settings['otGallery']['processing']['webp']['quality'] ?? 82,
+            'jpegQuality' => $settings['otGallery']['processing']['jpeg']['quality'] ?? 85,
+            'aspectRatio' => $record['tx_otgallery_aspect_ratio'] ?? 'free',
+            'rendering' => $record['tx_otgallery_rendering'] ?? 'cover',
         ];
 
         return md5(serialize($relevant));

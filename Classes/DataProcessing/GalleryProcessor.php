@@ -7,8 +7,8 @@ namespace OliverThiele\OtGallery\DataProcessing;
 use OliverThiele\OtGallery\Service\ImageSizeCalculatorService;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
-use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 use TYPO3\CMS\Core\Resource\AbstractFile;
+use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\FileType;
@@ -78,18 +78,18 @@ final class GalleryProcessor implements DataProcessorInterface
 
         $targetVariableName = $processorConfiguration['as'] ?? 'gallery';
         $processedData[$targetVariableName] = [
-            'images'               => $paginator->getPaginatedItems(),
-            'allImages'            => $files,
-            'paginator'            => $paginator,
-            'pagination'           => $pagination,
-            'sizesAttribute'       => $sizesAttribute,
-            'imageWidths'          => $imageWidths,
-            'rowColsClasses'       => $rowColsClasses,
-            'aspectRatioCss'       => $aspectRatioCss,
-            'effectiveLayout'      => $effectiveLayout,
-            'totalCount'           => count($files),
-            'source'               => $source,
-            'flex'                 => $flexSettings,
+            'images' => $paginator->getPaginatedItems(),
+            'allImages' => $files,
+            'paginator' => $paginator,
+            'pagination' => $pagination,
+            'sizesAttribute' => $sizesAttribute,
+            'imageWidths' => $imageWidths,
+            'rowColsClasses' => $rowColsClasses,
+            'aspectRatioCss' => $aspectRatioCss,
+            'effectiveLayout' => $effectiveLayout,
+            'totalCount' => count($files),
+            'source' => $source,
+            'flex' => $flexSettings,
             'lightboxCaptionFields' => $lightboxCaptionFields,
         ];
 
@@ -141,14 +141,14 @@ final class GalleryProcessor implements DataProcessorInterface
     {
         return [
             'tx_otgallery_columns_override' => (int)($flexSettings['columnsOverride'] ?? 0),
-            'tx_otgallery_columns_xs'       => (int)($flexSettings['columnsXs'] ?? 0),
-            'tx_otgallery_columns_sm'       => (int)($flexSettings['columnsSm'] ?? 0),
-            'tx_otgallery_columns_md'       => (int)($flexSettings['columnsMd'] ?? 0),
-            'tx_otgallery_columns_lg'       => (int)($flexSettings['columnsLg'] ?? 0),
-            'tx_otgallery_columns_xl'       => (int)($flexSettings['columnsXl'] ?? 0),
-            'tx_otgallery_columns_xxl'      => (int)($flexSettings['columnsXxl'] ?? 0),
-            'tx_otgallery_aspect_ratio'     => $flexSettings['aspectRatio'] ?? 'free',
-            'tx_otgallery_rendering'        => $flexSettings['rendering'] ?? 'cover',
+            'tx_otgallery_columns_xs' => (int)($flexSettings['columnsXs'] ?? 0),
+            'tx_otgallery_columns_sm' => (int)($flexSettings['columnsSm'] ?? 0),
+            'tx_otgallery_columns_md' => (int)($flexSettings['columnsMd'] ?? 0),
+            'tx_otgallery_columns_lg' => (int)($flexSettings['columnsLg'] ?? 0),
+            'tx_otgallery_columns_xl' => (int)($flexSettings['columnsXl'] ?? 0),
+            'tx_otgallery_columns_xxl' => (int)($flexSettings['columnsXxl'] ?? 0),
+            'tx_otgallery_aspect_ratio' => $flexSettings['aspectRatio'] ?? 'free',
+            'tx_otgallery_rendering' => $flexSettings['rendering'] ?? 'cover',
         ];
     }
 
@@ -202,10 +202,13 @@ final class GalleryProcessor implements DataProcessorInterface
             }
         }
 
-        return array_values(array_filter(
-            $files,
-            static fn(FileInterface $file) => $file instanceof AbstractFile && $file->getType() === FileType::IMAGE->value
-        ));
+        return array_values(
+            array_filter(
+                $files,
+                static fn(FileInterface $file) => $file instanceof AbstractFile && $file->getType(
+                ) === FileType::IMAGE->value
+            )
+        );
     }
 
     /**
@@ -241,7 +244,7 @@ final class GalleryProcessor implements DataProcessorInterface
 
         usort($files, static function (FileInterface $a, FileInterface $b) use ($sortField): int {
             return match ($sortField) {
-                'date'  => $a->getProperty('creation_date') <=> $b->getProperty('creation_date'),
+                'date' => $a->getProperty('creation_date') <=> $b->getProperty('creation_date'),
                 default => strnatcasecmp($a->getName(), $b->getName()),
             };
         });
@@ -272,9 +275,9 @@ final class GalleryProcessor implements DataProcessorInterface
         $configuredFieldNames = array_filter(array_map('trim', explode(',', $configuredFieldsString)));
 
         return [
-            'title'       => in_array('title', $configuredFieldNames, true),
+            'title' => in_array('title', $configuredFieldNames, true),
             'description' => in_array('description', $configuredFieldNames, true),
-            'copyright'   => in_array('copyright', $configuredFieldNames, true),
+            'copyright' => in_array('copyright', $configuredFieldNames, true),
         ];
     }
 

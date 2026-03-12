@@ -19,7 +19,12 @@ final class LightboxCaptionViewHelper extends AbstractViewHelper
     public function initializeArguments(): void
     {
         $this->registerArgument('image', FileInterface::class, 'The image file object', true);
-        $this->registerArgument('fields', 'array', 'Associative array mapping field names to bool (enabled/disabled)', true);
+        $this->registerArgument(
+            'fields',
+            'array',
+            'Associative array mapping field names to bool (enabled/disabled)',
+            true
+        );
     }
 
     public function render(): string
