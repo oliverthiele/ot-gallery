@@ -36,10 +36,6 @@
 				<source>Lightbox</source>
 				<target>Lightbox</target>
 			</trans-unit>
-			<trans-unit id="categories.OtGallery.metadata" resname="categories.OtGallery.metadata">
-				<source>Metadata</source>
-				<target>Metadaten</target>
-			</trans-unit>
 			<trans-unit id="categories.OtGallery.pagination" resname="categories.OtGallery.pagination">
 				<source>Pagination</source>
 				<target>Seitenumbruch</target>
@@ -189,13 +185,13 @@
 			</trans-unit>
 
 			<!-- Lightbox -->
-			<trans-unit id="settings.otGallery.lightbox.provider" resname="settings.otGallery.lightbox.provider">
-				<source>Lightbox Provider</source>
-				<target>Lightbox-Anbieter</target>
+			<trans-unit id="settings.otGallery.lightbox.captionFields" resname="settings.otGallery.lightbox.captionFields">
+				<source>Lightbox Caption Fields</source>
+				<target>Lightbox-Beschriftungsfelder</target>
 			</trans-unit>
-			<trans-unit id="settings.description.otGallery.lightbox.provider" resname="settings.description.otGallery.lightbox.provider">
-				<source>JavaScript library used to display images in a lightbox overlay.</source>
-				<target>JavaScript-Bibliothek zur Anzeige von Bildern in einer Lightbox-Überlagerung.</target>
+			<trans-unit id="settings.description.otGallery.lightbox.captionFields" resname="settings.description.otGallery.lightbox.captionFields">
+				<source>Comma-separated list of image metadata fields shown in the lightbox caption (title, description, copyright).</source>
+				<target>Kommagetrennte Liste der Bildmetadaten-Felder, die in der Lightbox-Beschriftung angezeigt werden (title, description, copyright).</target>
 			</trans-unit>
 
 			<trans-unit id="settings.otGallery.lightbox.dataAttribute" resname="settings.otGallery.lightbox.dataAttribute">
@@ -205,43 +201,6 @@
 			<trans-unit id="settings.description.otGallery.lightbox.dataAttribute" resname="settings.description.otGallery.lightbox.dataAttribute">
 				<source>HTML data attribute added to gallery links to activate the lightbox (e.g. data-fancybox).</source>
 				<target>HTML-Datenattribut, das Galerie-Links hinzugefügt wird, um die Lightbox zu aktivieren (z. B. data-fancybox).</target>
-			</trans-unit>
-
-			<!-- Metadata -->
-			<trans-unit id="settings.otGallery.metadata.showTitle" resname="settings.otGallery.metadata.showTitle">
-				<source>Show Title</source>
-				<target>Titel anzeigen</target>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showTitle" resname="settings.description.otGallery.metadata.showTitle">
-				<source>Show the image title below each thumbnail by default.</source>
-				<target>Den Bildtitel standardmäßig unter jedem Vorschaubild anzeigen.</target>
-			</trans-unit>
-
-			<trans-unit id="settings.otGallery.metadata.showDescription" resname="settings.otGallery.metadata.showDescription">
-				<source>Show Description</source>
-				<target>Beschreibung anzeigen</target>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showDescription" resname="settings.description.otGallery.metadata.showDescription">
-				<source>Show the image description below each thumbnail by default.</source>
-				<target>Die Bildbeschreibung standardmäßig unter jedem Vorschaubild anzeigen.</target>
-			</trans-unit>
-
-			<trans-unit id="settings.otGallery.metadata.showCopyright" resname="settings.otGallery.metadata.showCopyright">
-				<source>Show Copyright</source>
-				<target>Copyright anzeigen</target>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showCopyright" resname="settings.description.otGallery.metadata.showCopyright">
-				<source>Show the copyright notice below each thumbnail by default.</source>
-				<target>Den Copyright-Hinweis standardmäßig unter jedem Vorschaubild anzeigen.</target>
-			</trans-unit>
-
-			<trans-unit id="settings.otGallery.metadata.showExif" resname="settings.otGallery.metadata.showExif">
-				<source>Show EXIF Data</source>
-				<target>EXIF-Daten anzeigen</target>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showExif" resname="settings.description.otGallery.metadata.showExif">
-				<source>Show EXIF metadata (camera, aperture, shutter speed, ISO) by default.</source>
-				<target>EXIF-Metadaten (Kamera, Blende, Verschlusszeit, ISO) standardmäßig anzeigen.</target>
 			</trans-unit>
 
 			<!-- Pagination -->

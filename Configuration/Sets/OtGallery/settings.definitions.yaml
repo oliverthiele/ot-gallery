@@ -10,8 +10,6 @@ categories:
     parent: OtGallery
   OtGallery.lightbox:
     parent: OtGallery
-  OtGallery.metadata:
-    parent: OtGallery
   OtGallery.pagination:
     parent: OtGallery
   OtGallery.processing:
@@ -109,41 +107,15 @@ settings:
       fill: 'Fill (stretch)'
 
   # Lightbox
-  otGallery.lightbox.provider:
+  otGallery.lightbox.captionFields:
     category: OtGallery.lightbox
     type: string
-    default: 'fancybox'
-    enum:
-      fancybox: 'Fancybox'
-      glightbox: 'GLightbox'
-      none: 'None'
-      custom: 'Custom'
+    default: 'title,description,copyright'
 
   otGallery.lightbox.dataAttribute:
     category: OtGallery.lightbox
     type: string
     default: 'data-fancybox'
-
-  # Metadata defaults
-  otGallery.metadata.showTitle:
-    category: OtGallery.metadata
-    type: bool
-    default: true
-
-  otGallery.metadata.showDescription:
-    category: OtGallery.metadata
-    type: bool
-    default: false
-
-  otGallery.metadata.showCopyright:
-    category: OtGallery.metadata
-    type: bool
-    default: true
-
-  otGallery.metadata.showExif:
-    category: OtGallery.metadata
-    type: bool
-    default: false
 
   # Pagination
   otGallery.pagination.itemsPerPage:

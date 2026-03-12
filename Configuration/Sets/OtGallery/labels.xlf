@@ -29,9 +29,6 @@
 			<trans-unit id="categories.OtGallery.lightbox" resname="categories.OtGallery.lightbox">
 				<source>Lightbox</source>
 			</trans-unit>
-			<trans-unit id="categories.OtGallery.metadata" resname="categories.OtGallery.metadata">
-				<source>Metadata</source>
-			</trans-unit>
 			<trans-unit id="categories.OtGallery.pagination" resname="categories.OtGallery.pagination">
 				<source>Pagination</source>
 			</trans-unit>
@@ -149,11 +146,11 @@
 			</trans-unit>
 
 			<!-- Lightbox -->
-			<trans-unit id="settings.otGallery.lightbox.provider" resname="settings.otGallery.lightbox.provider">
-				<source>Lightbox Provider</source>
+			<trans-unit id="settings.otGallery.lightbox.captionFields" resname="settings.otGallery.lightbox.captionFields">
+				<source>Lightbox Caption Fields</source>
 			</trans-unit>
-			<trans-unit id="settings.description.otGallery.lightbox.provider" resname="settings.description.otGallery.lightbox.provider">
-				<source>JavaScript library used to display images in a lightbox overlay.</source>
+			<trans-unit id="settings.description.otGallery.lightbox.captionFields" resname="settings.description.otGallery.lightbox.captionFields">
+				<source>Comma-separated list of image metadata fields shown in the lightbox caption (title, description, copyright).</source>
 			</trans-unit>
 
 			<trans-unit id="settings.otGallery.lightbox.dataAttribute" resname="settings.otGallery.lightbox.dataAttribute">
@@ -161,35 +158,6 @@
 			</trans-unit>
 			<trans-unit id="settings.description.otGallery.lightbox.dataAttribute" resname="settings.description.otGallery.lightbox.dataAttribute">
 				<source>HTML data attribute added to gallery links to activate the lightbox (e.g. data-fancybox).</source>
-			</trans-unit>
-
-			<!-- Metadata -->
-			<trans-unit id="settings.otGallery.metadata.showTitle" resname="settings.otGallery.metadata.showTitle">
-				<source>Show Title</source>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showTitle" resname="settings.description.otGallery.metadata.showTitle">
-				<source>Show the image title below each thumbnail by default.</source>
-			</trans-unit>
-
-			<trans-unit id="settings.otGallery.metadata.showDescription" resname="settings.otGallery.metadata.showDescription">
-				<source>Show Description</source>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showDescription" resname="settings.description.otGallery.metadata.showDescription">
-				<source>Show the image description below each thumbnail by default.</source>
-			</trans-unit>
-
-			<trans-unit id="settings.otGallery.metadata.showCopyright" resname="settings.otGallery.metadata.showCopyright">
-				<source>Show Copyright</source>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showCopyright" resname="settings.description.otGallery.metadata.showCopyright">
-				<source>Show the copyright notice below each thumbnail by default.</source>
-			</trans-unit>
-
-			<trans-unit id="settings.otGallery.metadata.showExif" resname="settings.otGallery.metadata.showExif">
-				<source>Show EXIF Data</source>
-			</trans-unit>
-			<trans-unit id="settings.description.otGallery.metadata.showExif" resname="settings.description.otGallery.metadata.showExif">
-				<source>Show EXIF metadata (camera, aperture, shutter speed, ISO) by default.</source>
 			</trans-unit>
 
 			<!-- Pagination -->
