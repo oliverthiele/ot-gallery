@@ -1,16 +1,16 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-<f:if condition="{flex.showTitle} && {image.properties.title}">
-    <span class="ot-gallery__title">{image.properties.title}</span>
+<f:if condition="{showTitle} && {image.properties.title}">
+    <span class="ot-gallery-title">{image.properties.title}</span>
 </f:if>
 
-<f:if condition="{flex.showDescription} && {image.properties.description}">
-    <span class="ot-gallery__description">{image.properties.description}</span>
+<f:if condition="{showDescription} && {image.properties.description}">
+    <span class="ot-gallery-description">{image.properties.description}</span>
 </f:if>
 
-<f:if condition="{flex.showCopyright} && {image.properties.copyright}">
-    <small class="ot-gallery__copyright">
+<f:if condition="{showCopyright} && {image.properties.copyright}">
+    <small class="ot-gallery-copyright">
         <span aria-label="{f:translate(key: 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.copyright')}">©</span>
         {image.properties.copyright}
     </small>
