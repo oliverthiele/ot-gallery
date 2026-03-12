@@ -6,8 +6,8 @@
 		<header/>
 		<body>
 			<trans-unit id="gallery.imageCount" resname="gallery.imageCount">
-				<source>Page %1s of %2s, images %3s to %4s of a total of %5s</source>
-				<target>Seite %1s von %2s, Bilder %3s bis %4s von insgesamt %5s</target>
+				<source>Page %1$s of %2$s, images %3$s to %4$s of a total of %5$s</source>
+				<target>Seite %1$s von %2$s, Bilder %3$s bis %4$s von insgesamt %5$s</target>
 			</trans-unit>
 			<trans-unit id="gallery.openImage" resname="gallery.openImage">
 				<source>Open image in lightbox</source>

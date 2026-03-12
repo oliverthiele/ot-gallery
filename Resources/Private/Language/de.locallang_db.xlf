@@ -197,38 +197,45 @@
 				<target>0 = SiteSet-Standard verwenden</target>
 			</trans-unit>
 			<trans-unit id="tt_content.tx_otgallery_lightbox" resname="tt_content.tx_otgallery_lightbox">
-				<source>Lightbox</source>
-				<target>Lightbox</target>
+				<source>Enable Lightbox</source>
+				<target>Lightbox aktivieren</target>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_lightbox.fancybox"
-						resname="tt_content.tx_otgallery_lightbox.fancybox">
-				<source>Fancybox</source>
-				<target>Fancybox</target>
+
+			<!-- Figcaption -->
+			<trans-unit id="tt_content.tx_otgallery_figcaption_title"
+						resname="tt_content.tx_otgallery_figcaption_title">
+				<source>Show Title in Caption</source>
+				<target>Titel in Bildunterschrift anzeigen</target>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_lightbox.none" resname="tt_content.tx_otgallery_lightbox.none">
-				<source>None</source>
-				<target>Keine</target>
+			<trans-unit id="tt_content.tx_otgallery_figcaption_description"
+						resname="tt_content.tx_otgallery_figcaption_description">
+				<source>Show Description in Caption</source>
+				<target>Beschreibung in Bildunterschrift anzeigen</target>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_lightbox.custom" resname="tt_content.tx_otgallery_lightbox.custom">
-				<source>Custom</source>
-				<target>Benutzerdefiniert</target>
+			<trans-unit id="tt_content.tx_otgallery_figcaption_copyright"
+						resname="tt_content.tx_otgallery_figcaption_copyright">
+				<source>Show Copyright in Caption</source>
+				<target>Copyright in Bildunterschrift anzeigen</target>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_title" resname="tt_content.tx_otgallery_show_title">
-				<source>Show Title</source>
-				<target>Titel anzeigen</target>
+			<trans-unit id="tt_content.tx_otgallery_figcaption_visually_hidden"
+						resname="tt_content.tx_otgallery_figcaption_visually_hidden">
+				<source>Caption Visually Hidden (for screen readers / SEO only)</source>
+				<target>Bildunterschrift visuell verborgen (nur für Screenreader / SEO)</target>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_description"
-						resname="tt_content.tx_otgallery_show_description">
-				<source>Show Description</source>
-				<target>Beschreibung anzeigen</target>
+
+			<!-- Menu -->
+			<trans-unit id="tt_content.tx_otgallery_menu_title" resname="tt_content.tx_otgallery_menu_title">
+				<source>Show Title in Menu</source>
+				<target>Titel im Menü anzeigen</target>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_copyright" resname="tt_content.tx_otgallery_show_copyright">
-				<source>Show Copyright</source>
-				<target>Copyright anzeigen</target>
+			<trans-unit id="tt_content.tx_otgallery_menu_description"
+						resname="tt_content.tx_otgallery_menu_description">
+				<source>Show Description in Menu</source>
+				<target>Beschreibung im Menü anzeigen</target>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_exif" resname="tt_content.tx_otgallery_show_exif">
-				<source>Show EXIF Data</source>
-				<target>EXIF-Daten anzeigen</target>
+			<trans-unit id="tt_content.tx_otgallery_menu_copyright" resname="tt_content.tx_otgallery_menu_copyright">
+				<source>Show Copyright in Menu</source>
+				<target>Copyright im Menü anzeigen</target>
 			</trans-unit>
 			<trans-unit id="tt_content.tx_otgallery_enable_download" resname="tt_content.tx_otgallery_enable_download">
 				<source>Enable Download</source>

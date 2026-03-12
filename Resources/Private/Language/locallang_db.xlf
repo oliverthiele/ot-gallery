@@ -156,30 +156,37 @@
 				<source>0 = use SiteSet default</source>
 			</trans-unit>
 			<trans-unit id="tt_content.tx_otgallery_lightbox" resname="tt_content.tx_otgallery_lightbox">
-				<source>Lightbox</source>
+				<source>Enable Lightbox</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_lightbox.fancybox"
-						resname="tt_content.tx_otgallery_lightbox.fancybox">
-				<source>Fancybox</source>
+
+			<!-- Figcaption -->
+			<trans-unit id="tt_content.tx_otgallery_figcaption_title"
+						resname="tt_content.tx_otgallery_figcaption_title">
+				<source>Show Title in Caption</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_lightbox.none" resname="tt_content.tx_otgallery_lightbox.none">
-				<source>None</source>
+			<trans-unit id="tt_content.tx_otgallery_figcaption_description"
+						resname="tt_content.tx_otgallery_figcaption_description">
+				<source>Show Description in Caption</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_lightbox.custom" resname="tt_content.tx_otgallery_lightbox.custom">
-				<source>Custom</source>
+			<trans-unit id="tt_content.tx_otgallery_figcaption_copyright"
+						resname="tt_content.tx_otgallery_figcaption_copyright">
+				<source>Show Copyright in Caption</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_title" resname="tt_content.tx_otgallery_show_title">
-				<source>Show Title</source>
+			<trans-unit id="tt_content.tx_otgallery_figcaption_visually_hidden"
+						resname="tt_content.tx_otgallery_figcaption_visually_hidden">
+				<source>Caption Visually Hidden (for screen readers / SEO only)</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_description"
-						resname="tt_content.tx_otgallery_show_description">
-				<source>Show Description</source>
+
+			<!-- Menu -->
+			<trans-unit id="tt_content.tx_otgallery_menu_title" resname="tt_content.tx_otgallery_menu_title">
+				<source>Show Title in Menu</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_copyright" resname="tt_content.tx_otgallery_show_copyright">
-				<source>Show Copyright</source>
+			<trans-unit id="tt_content.tx_otgallery_menu_description"
+						resname="tt_content.tx_otgallery_menu_description">
+				<source>Show Description in Menu</source>
 			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_show_exif" resname="tt_content.tx_otgallery_show_exif">
-				<source>Show EXIF Data</source>
+			<trans-unit id="tt_content.tx_otgallery_menu_copyright" resname="tt_content.tx_otgallery_menu_copyright">
+				<source>Show Copyright in Menu</source>
 			</trans-unit>
 			<trans-unit id="tt_content.tx_otgallery_enable_download" resname="tt_content.tx_otgallery_enable_download">
 				<source>Enable Download</source>
