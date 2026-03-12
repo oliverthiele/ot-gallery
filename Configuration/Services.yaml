@@ -14,3 +14,6 @@ services:
   # ViewHelpers must be public
   OliverThiele\OtGallery\ViewHelpers\GallerySrcsetViewHelper:
     public: true
+
+  OliverThiele\OtGallery\ViewHelpers\LightboxCaptionViewHelper:
+    public: true

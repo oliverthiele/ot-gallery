@@ -70,6 +70,7 @@ final class GalleryProcessor implements DataProcessorInterface
         $rowColsClasses = $this->imageSizeCalculatorService->generateRowColsClasses($siteSettings, $calculatorRecord);
         $aspectRatio = $flexSettings['aspectRatio'] ?? 'free';
         $aspectRatioCss = $this->formatAspectRatioCss($aspectRatio);
+        $lightboxCaptionFields = $this->buildLightboxCaptionFields($siteSettings);
 
         // Masonry requires variable image heights — fall back to grid when a fixed ratio is set
         $layout = $flexSettings['layout'] ?? 'grid';
@@ -77,18 +78,19 @@ final class GalleryProcessor implements DataProcessorInterface
 
         $targetVariableName = $processorConfiguration['as'] ?? 'gallery';
         $processedData[$targetVariableName] = [
-            'images'          => $paginator->getPaginatedItems(),
-            'allImages'       => $files,
-            'paginator'       => $paginator,
-            'pagination'      => $pagination,
-            'sizesAttribute'  => $sizesAttribute,
-            'imageWidths'     => $imageWidths,
-            'rowColsClasses'  => $rowColsClasses,
-            'aspectRatioCss'  => $aspectRatioCss,
-            'effectiveLayout' => $effectiveLayout,
-            'totalCount'      => count($files),
-            'source'          => $source,
-            'flex'            => $flexSettings,
+            'images'               => $paginator->getPaginatedItems(),
+            'allImages'            => $files,
+            'paginator'            => $paginator,
+            'pagination'           => $pagination,
+            'sizesAttribute'       => $sizesAttribute,
+            'imageWidths'          => $imageWidths,
+            'rowColsClasses'       => $rowColsClasses,
+            'aspectRatioCss'       => $aspectRatioCss,
+            'effectiveLayout'      => $effectiveLayout,
+            'totalCount'           => count($files),
+            'source'               => $source,
+            'flex'                 => $flexSettings,
+            'lightboxCaptionFields' => $lightboxCaptionFields,
         ];
 
         return $processedData;
@@ -255,6 +257,25 @@ final class GalleryProcessor implements DataProcessorInterface
     {
         $params = $cObj->getRequest()->getQueryParams();
         return max(1, (int)($params['tx_otgallery_page'] ?? 1));
+    }
+
+    /**
+     * Builds an associative array of enabled lightbox caption fields from the SiteSet setting
+     * otGallery.lightbox.captionFields (comma-separated: title,description,copyright).
+     *
+     * @param array<string, mixed> $siteSettings
+     * @return array<string, bool>
+     */
+    private function buildLightboxCaptionFields(array $siteSettings): array
+    {
+        $configuredFieldsString = (string)($siteSettings['otGallery']['lightbox']['captionFields'] ?? 'title,description,copyright');
+        $configuredFieldNames = array_filter(array_map('trim', explode(',', $configuredFieldsString)));
+
+        return [
+            'title'       => in_array('title', $configuredFieldNames, true),
+            'description' => in_array('description', $configuredFieldNames, true),
+            'copyright'   => in_array('copyright', $configuredFieldNames, true),
+        ];
     }
 
     /**
