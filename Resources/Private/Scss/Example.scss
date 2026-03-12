@@ -10,7 +10,7 @@
     // Grid: row-cols-* classes from Bootstrap handle column layout.
     // Gutter via Bootstrap's g-* or customize below.
     // -------------------------------------------------------------------------
-    &__grid {
+    &-grid {
         --bs-gutter-x: 1rem;
         --bs-gutter-y: 1rem;
         list-style: none;
@@ -18,19 +18,19 @@
         margin-bottom: 0;
     }
 
-    &__item {
+    &-item {
         list-style: none;
     }
 
     // -------------------------------------------------------------------------
     // Figure / media wrapper
     // -------------------------------------------------------------------------
-    &__figure {
+    &-figure {
         position: relative;
         margin: 0;
     }
 
-    &__media {
+    &-media {
         position: relative;
         overflow: hidden;
         border-radius: var(--bs-border-radius, 0.375rem);
@@ -40,8 +40,8 @@
         &[style*="--ot-gallery-ratio"] {
             aspect-ratio: var(--ot-gallery-ratio);
 
-            .ot-gallery__picture,
-            .ot-gallery__img {
+            .ot-gallery-picture,
+            .ot-gallery-img {
                 position: absolute;
                 inset: 0;
                 width: 100%;
@@ -54,12 +54,12 @@
     // -------------------------------------------------------------------------
     // Image
     // -------------------------------------------------------------------------
-    &__picture {
+    &-picture {
         display: block;
         width: 100%;
     }
 
-    &__img {
+    &-img {
         display: block;
         width: 100%;
         height: auto;
@@ -69,18 +69,18 @@
     // -------------------------------------------------------------------------
     // Link wrapper
     // -------------------------------------------------------------------------
-    &__link {
+    &-link {
         display: block;
         overflow: hidden;
         text-decoration: none;
 
         &:hover,
         &:focus-visible {
-            .ot-gallery__img {
+            .ot-gallery-img {
                 transform: scale(1.04);
             }
 
-            .ot-gallery__overlay {
+            .ot-gallery-overlay {
                 opacity: 1;
             }
         }
@@ -94,7 +94,7 @@
     // -------------------------------------------------------------------------
     // Hover overlay (zoom icon)
     // -------------------------------------------------------------------------
-    &__overlay {
+    &-overlay {
         position: absolute;
         inset: 0;
         display: flex;
@@ -106,7 +106,7 @@
         pointer-events: none;
     }
 
-    &__icon {
+    &-icon {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -116,24 +116,24 @@
             fill: currentColor;
             filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
         }
+    }
 
-        &--zoom {
-            width: 48px;
-            height: 48px;
-        }
+    &-icon-zoom {
+        width: 48px;
+        height: 48px;
     }
 
     // -------------------------------------------------------------------------
-    // Three-dot context menu (download, description, copyright)
+    // Three-dot context menu (download, title, description, copyright)
     // -------------------------------------------------------------------------
-    &__menu {
+    &-menu {
         position: absolute;
         bottom: 0.5rem;
         right: 0.5rem;
         z-index: 10;
     }
 
-    &__menu-btn {
+    &-menu-btn {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -174,16 +174,16 @@
         }
     }
 
-    &__figure:hover &__menu-btn {
+    &-figure:hover &-menu-btn {
         opacity: 1;
     }
 
-    &__menu-list {
+    &-menu-list {
         min-width: 200px;
         font-size: 0.875rem;
     }
 
-    &__menu-download {
+    &-menu-download {
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -194,8 +194,9 @@
         }
     }
 
-    &__menu-description,
-    &__menu-copyright {
+    &-menu-title,
+    &-menu-description,
+    &-menu-copyright {
         display: block;
         white-space: normal;
         color: var(--bs-secondary-color, #6c757d);
@@ -206,47 +207,54 @@
     // -------------------------------------------------------------------------
     // Figcaption
     // -------------------------------------------------------------------------
-    &__caption {
+    &-caption {
         padding: 0.4rem 0.25rem 0;
         font-size: 0.85em;
     }
 
-    &__title {
+    &-title {
         display: block;
         font-weight: 500;
         color: var(--bs-body-color);
     }
 
-    &__description {
+    &-description {
         display: block;
         color: var(--bs-secondary-color, #6c757d);
     }
 
-    &__copyright {
+    &-copyright {
         display: block;
         color: var(--bs-secondary-color, #6c757d);
     }
 
     // -------------------------------------------------------------------------
-    // Image counter
+    // Image counter (visually hidden via Bootstrap utility on the element)
     // -------------------------------------------------------------------------
-    &__count {
+    &-count {
         // visually-hidden via Bootstrap utility class on the element itself
     }
 
     // -------------------------------------------------------------------------
     // Footer: pagination
     // -------------------------------------------------------------------------
-    &__footer {
+    &-footer {
         margin-top: 1.5rem;
     }
 
+    // -------------------------------------------------------------------------
+    // Pagination
+    // -------------------------------------------------------------------------
+    &-pagination {
+        flex: 1 1 auto;
+    }
 
     // -------------------------------------------------------------------------
-    // Layout: Masonry (CSS columns — no CLS)
+    // Layout variant: Masonry (CSS columns — no CLS)
+    // Activated via data-variant="masonry" on the .ot-gallery element
     // -------------------------------------------------------------------------
-    &--masonry {
-        .ot-gallery__grid {
+    &[data-variant="masonry"] {
+        .ot-gallery-grid {
             display: block;
             columns: 2;
             column-gap: var(--bs-gutter-x, 1rem);
@@ -262,7 +270,7 @@
             @media (min-width: 1400px) { columns: 6; }
         }
 
-        .ot-gallery__item {
+        .ot-gallery-item {
             display: block;
             break-inside: avoid;
             // Remove Bootstrap col padding — column-gap handles horizontal spacing
@@ -271,12 +279,5 @@
             margin-bottom: var(--bs-gutter-x, 1rem);
             width: 100%;
         }
-    }
-
-    // -------------------------------------------------------------------------
-    // Pagination (inside __footer, margin handled by footer)
-    // -------------------------------------------------------------------------
-    &__pagination {
-        flex: 1 1 auto;
     }
 }
