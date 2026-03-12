@@ -15,6 +15,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Exception\SiteNotFoundException;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Site\SiteFinder;
@@ -168,8 +169,7 @@ final class ProcessGalleryImagesCommand extends Command
             'pi_flexform',
             'tx_otgallery_source',
             'tx_otgallery_folder',
-            'tx_otgallery_folder_recursive',
-            'tx_otgallery_images',
+            'recursive',
             'tx_otgallery_config_hash',
             'tx_otgallery_processed_at'
         )
@@ -225,12 +225,12 @@ final class ProcessGalleryImagesCommand extends Command
             if (empty($folderIdentifiers)) {
                 return [];
             }
-            $recursive = (bool)($record['tx_otgallery_folder_recursive'] ?? false);
+            $recursiveDepth = (int)($record['recursive'] ?? 0);
             $files = [];
             foreach ($folderIdentifiers as $identifier) {
                 try {
                     $folder = $this->resourceFactory->getFolderObjectFromCombinedIdentifier($identifier);
-                    $files = array_merge($files, $folder->getFiles(0, 0, \TYPO3\CMS\Core\Resource\Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, $recursive));
+                    $files = array_merge($files, $this->getFilesFromFolderWithDepth($folder, $recursiveDepth));
                 } catch (\Exception) {
                     // Skip non-existing or inaccessible folders
                 }

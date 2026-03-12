@@ -8,8 +8,10 @@ use OliverThiele\OtGallery\Service\ImageSizeCalculatorService;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;
+use TYPO3\CMS\Core\Resource\AbstractFile;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileRepository;
+use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Resource\Folder;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Service\FlexFormService;
@@ -162,13 +164,13 @@ final class GalleryProcessor implements DataProcessorInterface
             return [];
         }
 
-        $recursive = (bool)($record['tx_otgallery_folder_recursive'] ?? false);
+        $recursiveDepth = (int)($record['recursive'] ?? 0);
         $files = [];
 
         foreach ($folderIdentifiers as $identifier) {
             try {
                 $folder = $this->resourceFactory->getFolderObjectFromCombinedIdentifier($identifier);
-                $files = array_merge($files, $folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, $recursive));
+                $files = array_merge($files, $this->getFilesFromFolderWithDepth($folder, $recursiveDepth));
             } catch (ResourceDoesNotExistException) {
                 // Skip non-existing folders
             }
