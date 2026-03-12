@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace OliverThiele\OtGallery\ViewHelpers;
 
+use OliverThiele\OtGallery\Service\ImageSizeCalculatorService;
 use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Extbase\Service\ImageService;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
@@ -17,10 +18,12 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  * Usage:
  * <ot:gallerySrcset image="{image}" widths="{gallery.imageWidths}" />
  */
-class GallerySrcsetViewHelper extends AbstractViewHelper
+final class GallerySrcsetViewHelper extends AbstractViewHelper
 {
-    public function __construct(private readonly ImageService $imageService)
-    {
+    public function __construct(
+        private readonly ImageService $imageService,
+        private readonly ImageSizeCalculatorService $imageSizeCalculatorService,
+    ) {
     }
 
     public function initializeArguments(): void
@@ -36,8 +39,7 @@ class GallerySrcsetViewHelper extends AbstractViewHelper
         $widths = $this->arguments['widths'];
         $fileExtension = $this->arguments['fileExtension'];
 
-        // Collect unique pixel values (drop @-suffixed keys, collect as plain ints)
-        $uniqueWidths = $this->collectUniqueWidths($widths);
+        $uniqueWidths = $this->imageSizeCalculatorService->collectUniqueWidths($widths);
 
         if (empty($uniqueWidths)) {
             return '';
@@ -61,34 +63,4 @@ class GallerySrcsetViewHelper extends AbstractViewHelper
         return implode(', ', $srcsetParts);
     }
 
-    /**
-     * Collects all unique pixel widths from the widths map.
-     * Keys like 'sm@2x' are included by their value — the key suffix is irrelevant.
-     * Near-duplicate widths (within 5% of each other) are deduplicated.
-     *
-     * @param array<string, int> $widths
-     * @return int[]
-     */
-    private function collectUniqueWidths(array $widths): array
-    {
-        $values = array_values(array_filter($widths, static fn($w) => (int)$w > 0));
-        $values = array_map('intval', $values);
-        sort($values);
-
-        $result = [];
-        foreach ($values as $width) {
-            $isDuplicate = false;
-            foreach ($result as $existing) {
-                if ($existing > 0 && abs($width - $existing) / $existing < 0.05) {
-                    $isDuplicate = true;
-                    break;
-                }
-            }
-            if (!$isDuplicate) {
-                $result[] = $width;
-            }
-        }
-
-        return $result;
-    }
 }

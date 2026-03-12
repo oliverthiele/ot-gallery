@@ -98,7 +98,7 @@ final class ProcessGalleryImagesCommand extends Command
             ));
 
             if ($io->isVerbose()) {
-                $uniqueWidths = $this->collectUniqueWidths($imageWidths);
+                $uniqueWidths = $this->imageSizeCalculatorService->collectUniqueWidths($imageWidths);
                 $io->writeln(sprintf(
                     '         Widths (px): %s',
                     implode(', ', $uniqueWidths)
@@ -123,7 +123,7 @@ final class ProcessGalleryImagesCommand extends Command
             if (!$dryRun) {
                 $errors = $this->processFiles($files, $imageWidths, $io);
                 $totalErrors += $errors;
-                $this->updateProcessingStatus($record['uid'], $newHash);
+                $this->updateProcessingStatus((int)$record['uid'], $newHash);
             }
 
             $totalProcessed++;
@@ -279,7 +279,7 @@ final class ProcessGalleryImagesCommand extends Command
     private function processFiles(array $files, array $imageWidths, SymfonyStyle $io): int
     {
         $errors = 0;
-        $uniqueWidths = $this->collectUniqueWidths($imageWidths);
+        $uniqueWidths = $this->imageSizeCalculatorService->collectUniqueWidths($imageWidths);
 
         foreach ($files as $file) {
             foreach ($uniqueWidths as $width) {
@@ -322,36 +322,6 @@ final class ProcessGalleryImagesCommand extends Command
 
         $columnCount = max(1, (int)($settings['otGallery']['grid']['columns'][$breakpoint] ?? 1));
         return [$columnCount, 'Site Settings'];
-    }
-
-    /**
-     * Collects unique pixel widths, deduplicating values within 5% of each other.
-     * Mirrors the logic in GallerySrcsetViewHelper::collectUniqueWidths().
-     *
-     * @param array<string, int> $widths
-     * @return int[]
-     */
-    private function collectUniqueWidths(array $widths): array
-    {
-        $values = array_values(array_filter($widths, static fn($w) => (int)$w > 0));
-        $values = array_map('intval', $values);
-        sort($values);
-
-        $result = [];
-        foreach ($values as $width) {
-            $isDuplicate = false;
-            foreach ($result as $existing) {
-                if ($existing > 0 && abs($width - $existing) / $existing < 0.05) {
-                    $isDuplicate = true;
-                    break;
-                }
-            }
-            if (!$isDuplicate) {
-                $result[] = $width;
-            }
-        }
-
-        return $result;
     }
 
     private function updateProcessingStatus(int $uid, string $hash): void

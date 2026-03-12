@@ -341,6 +341,86 @@ final class ImageSizeCalculatorServiceTest extends UnitTestCase
     }
 
     // =========================================================================
+    // collectUniqueWidths
+    // =========================================================================
+
+    #[Test]
+    public function collectUniqueWidthsReturnsSortedUniqueValues(): void
+    {
+        $widths = [
+            'xs'   => 351,
+            'sm'   => 246,
+            'md'   => 216,
+            'lg'   => 216,
+            'xl'   => 204,
+            'xxl'  => 196,
+        ];
+
+        $result = $this->subject->collectUniqueWidths($widths);
+
+        // md and lg are identical (216) → one dropped
+        // xl (204) is within 4.1% of xxl (196) → also dropped as near-duplicate
+        // result sorted ascending
+        self::assertSame([196, 216, 246, 351], $result);
+    }
+
+    #[Test]
+    public function collectUniqueWidthsDeduplicatesHiDpiVariants(): void
+    {
+        $widths = [
+            'xs'    => 351,
+            'xs@2x' => 702,
+            'sm'    => 246,
+            'sm@2x' => 492,
+        ];
+
+        $result = $this->subject->collectUniqueWidths($widths);
+
+        // All four values are distinct enough → all four kept
+        self::assertSame([246, 351, 492, 702], $result);
+    }
+
+    #[Test]
+    public function collectUniqueWidthsDropsNearDuplicatesWithinFivePercent(): void
+    {
+        // 200 and 209 differ by 4.5% → 209 is a near-duplicate of 200 and must be dropped
+        $widths = ['a' => 200, 'b' => 209, 'c' => 400];
+
+        $result = $this->subject->collectUniqueWidths($widths);
+
+        self::assertSame([200, 400], $result);
+    }
+
+    #[Test]
+    public function collectUniqueWidthsKeepsValuesThatExceedFivePercentThreshold(): void
+    {
+        // 200 and 212 differ by 6% → both are kept
+        $widths = ['a' => 200, 'b' => 212];
+
+        $result = $this->subject->collectUniqueWidths($widths);
+
+        self::assertSame([200, 212], $result);
+    }
+
+    #[Test]
+    public function collectUniqueWidthsFiltersOutZeroAndNegativeValues(): void
+    {
+        $widths = ['a' => 0, 'b' => 200, 'c' => -50, 'd' => 400];
+
+        $result = $this->subject->collectUniqueWidths($widths);
+
+        self::assertSame([200, 400], $result);
+    }
+
+    #[Test]
+    public function collectUniqueWidthsReturnsEmptyArrayForEmptyInput(): void
+    {
+        $result = $this->subject->collectUniqueWidths([]);
+
+        self::assertSame([], $result);
+    }
+
+    // =========================================================================
     // Edge cases shared across methods
     // =========================================================================
 

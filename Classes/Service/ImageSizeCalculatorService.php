@@ -125,6 +125,38 @@ final class ImageSizeCalculatorService
     }
 
     /**
+     * Collects unique pixel widths from an imageWidths map.
+     * Keys like 'sm@2x' are included by their value — the key suffix is irrelevant.
+     * Near-duplicate widths (within 5% of each other) are deduplicated to avoid
+     * generating redundant processed files.
+     *
+     * @param array<string, int> $widths
+     * @return int[]
+     */
+    public function collectUniqueWidths(array $widths): array
+    {
+        $values = array_values(array_filter($widths, static fn($width) => (int)$width > 0));
+        $values = array_map('intval', $values);
+        sort($values);
+
+        $result = [];
+        foreach ($values as $width) {
+            $isDuplicate = false;
+            foreach ($result as $existing) {
+                if ($existing > 0 && abs($width - $existing) / $existing < 0.05) {
+                    $isDuplicate = true;
+                    break;
+                }
+            }
+            if (!$isDuplicate) {
+                $result[] = $width;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Returns a MD5 hash of the configuration relevant for image processing.
      * Used by CLI to detect when reprocessing is needed.
      *
