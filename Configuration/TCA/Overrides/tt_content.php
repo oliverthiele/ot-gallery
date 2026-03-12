@@ -19,7 +19,6 @@ defined('TYPO3') or die();
         'ot_gallery'
     );
 
-    // Real columns (must be queryable or FAL-based)
     $GLOBALS['TCA']['tt_content']['columns']['tx_otgallery_source'] = [
         'label' => 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_source',
         'onChange' => 'reload',
@@ -40,36 +39,10 @@ defined('TYPO3') or die();
         ],
     ];
 
-    $GLOBALS['TCA']['tt_content']['columns']['tx_otgallery_images'] = [
-        'label' => 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_images',
-        'displayCond' => 'FIELD:tx_otgallery_source:=:files',
-        'config' => [
-            'type' => 'file',
-            'allowed' => 'common-image-types',
-            'appearance' => [
-                'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-                'showPossibleLocalizationRecords' => true,
-            ],
-        ],
-    ];
-
     $GLOBALS['TCA']['tt_content']['columns']['tx_otgallery_folder'] = [
         'label' => 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_folder',
-        'displayCond' => 'FIELD:tx_otgallery_source:=:folder',
         'config' => [
             'type' => 'folder',
-        ],
-    ];
-
-    $GLOBALS['TCA']['tt_content']['columns']['tx_otgallery_folder_recursive'] = [
-        'label' => 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_folder_recursive',
-        'displayCond' => 'FIELD:tx_otgallery_source:=:folder',
-        'config' => [
-            'type' => 'check',
-            'renderType' => 'checkboxToggle',
-            'items' => [
-                ['label' => '', 'value' => 1],
-            ],
         ],
     ];
 
@@ -102,14 +75,26 @@ defined('TYPO3') or die();
                 --palette--;;headers,
             --div--;LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tab.images,
                 tx_otgallery_source,
-                tx_otgallery_images,
+                assets,
                 tx_otgallery_folder,
-                tx_otgallery_folder_recursive,
+                recursive,
             --div--;LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tab.configuration,
                 pi_flexform,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
                 --palette--;;hidden,
                 --palette--;;access,
         ',
+        // Override displayCond for shared fields without affecting other CTypes
+        'columnsOverrides' => [
+            'assets' => [
+                'displayCond' => 'FIELD:tx_otgallery_source:=:files',
+            ],
+            'tx_otgallery_folder' => [
+                'displayCond' => 'FIELD:tx_otgallery_source:=:folder',
+            ],
+            'recursive' => [
+                'displayCond' => 'FIELD:tx_otgallery_source:=:folder',
+            ],
+        ],
     ];
 })();

@@ -238,8 +238,35 @@ final class ProcessGalleryImagesCommand extends Command
             return $files;
         }
 
-        $refs = $this->fileRepository->findByRelation('tt_content', 'tx_otgallery_images', (int)$record['uid']);
+        $refs = $this->fileRepository->findByRelation('tt_content', 'assets', (int)$record['uid']);
         return array_map(static fn($ref) => $ref->getOriginalFile(), $refs);
+    }
+
+    /**
+     * Recursively collects image files from a folder up to the given depth.
+     * Depth 0 = current folder only, 250 = all levels (TYPO3 convention).
+     * Non-image files (videos, documents, etc.) are filtered out.
+     *
+     * @return File[]
+     */
+    private function getFilesFromFolderWithDepth(\TYPO3\CMS\Core\Resource\Folder $folder, int $depth): array
+    {
+        if ($depth >= 250) {
+            $files = $folder->getFiles(0, 0, \TYPO3\CMS\Core\Resource\Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true);
+        } else {
+            $files = $folder->getFiles(0, 0, \TYPO3\CMS\Core\Resource\Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, false);
+
+            if ($depth > 0) {
+                foreach ($folder->getSubfolders() as $subfolder) {
+                    $files = array_merge($files, $this->getFilesFromFolderWithDepth($subfolder, $depth - 1));
+                }
+            }
+        }
+
+        return array_values(array_filter(
+            $files,
+            static fn(File $file) => $file->getType() === FileType::IMAGE->value
+        ));
     }
 
     /**

@@ -178,20 +178,46 @@ final class GalleryProcessor implements DataProcessorInterface
     }
 
     /**
+     * Recursively collects image files from a folder up to the given depth.
+     * Depth 0 = current folder only, 250 = all levels (TYPO3 convention).
+     * Non-image files (videos, documents, etc.) are filtered out.
+     *
+     * @return FileInterface[]
+     */
+    private function getFilesFromFolderWithDepth(Folder $folder, int $depth): array
+    {
+        if ($depth >= 250) {
+            $files = $folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, true);
+        } else {
+            $files = $folder->getFiles(0, 0, Folder::FILTER_MODE_USE_OWN_AND_STORAGE_FILTERS, false);
+
+            if ($depth > 0) {
+                foreach ($folder->getSubfolders() as $subfolder) {
+                    $files = array_merge($files, $this->getFilesFromFolderWithDepth($subfolder, $depth - 1));
+                }
+            }
+        }
+
+        return array_values(array_filter(
+            $files,
+            static fn(FileInterface $file) => $file instanceof AbstractFile && $file->getType() === FileType::IMAGE->value
+        ));
+    }
+
+    /**
+     * Returns FileReference objects so that per-reference metadata (title, description,
+     * alternative, copyright set on the content element) takes precedence over the
+     * global sys_file metadata.
+     *
      * @param array<string, mixed> $record
      * @return FileInterface[]
      */
     private function getFilesFromFal(array $record): array
     {
-        $fileReferences = $this->fileRepository->findByRelation(
+        return $this->fileRepository->findByRelation(
             'tt_content',
-            'tx_otgallery_images',
+            'assets',
             (int)$record['uid']
-        );
-
-        return array_map(
-            static fn($ref) => $ref->getOriginalFile(),
-            $fileReferences
         );
     }
 
