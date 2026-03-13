@@ -32,7 +32,7 @@
 
             <img srcset="{ot:gallerySrcset(image: image, widths: gallery.imageWidths)}"
                  sizes="{gallery.sizesAttribute}"
-                 src="{f:uri.image(image: image, width: gallery.imageWidths.xxl, fileExtension: 'webp')}"
+                 src="{ot:galleryImageSrc(image: image, width: gallery.imageWidths.xxl)}"
                  alt="{image.properties.alternative}"
                  title="{image.properties.title}"
                  loading="lazy"
