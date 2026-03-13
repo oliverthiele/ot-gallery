@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Initial release
 
+#### Pagination URLs
+- SEO-friendly pagination URLs via TYPO3 Route Enhancer (`Simple` type)
+- Page 1 renders as clean base URL (no `/page-1` suffix)
+- Pages 2+ render as `/{slug}-{n}` (e.g. `/page-2`, `/seite-2`)
+- `LocaleModifier` aspect for locale-aware URL segment: `page` (default/en), `seite` (de), `pagina` (nl/es/it), `strona` (pl)
+- `GalleryImageSrcViewHelper` replaces `f:uri.image` for `src` fallback — uses identical `ImageService::applyProcessingInstructions()` call as `GallerySrcsetViewHelper` and CLI, guaranteeing exact `sys_file_processedfile` cache hits with no redundant re-processing on first frontend request after CLI pre-processing
+
 #### Image rendering
 - Responsive `<img srcset sizes>` with WebP format
 - Widths calculated from SiteSet container widths, gutters and column counts per breakpoint

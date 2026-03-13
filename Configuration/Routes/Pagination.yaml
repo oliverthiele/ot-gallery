@@ -1,10 +1,30 @@
 routeEnhancers:
   OtGalleryPagination:
     type: Simple
-    routePath: '/page-{page}'
+    routePath: '/{pageSlug}-{page}'
     _arguments:
       page: tx_otgallery_page
     requirements:
       page: '\d+'
-    defaults:
-      page: ''
+      pageSlug: '[a-z]+'
+    aspects:
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
+      pageSlug:
+        type: LocaleModifier
+        default: 'page'
+        localeMap:
+          - locale: 'de_*'
+            value: 'seite'
+          - locale: 'fr_*'
+            value: 'page'
+          - locale: 'nl_*'
+            value: 'pagina'
+          - locale: 'es_*'
+            value: 'pagina'
+          - locale: 'it_*'
+            value: 'pagina'
+          - locale: 'pl_*'
+            value: 'strona'
