@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] — 2026-03-13
+
+### Changed
+
+- **Pagination URLs**: cHash-free via `StaticRangeMapper` (pages 1–100)
+- **Pagination URLs**: locale-aware URL segment via `LocaleModifier` (`page` en, `seite` de, `pagina` nl/es/it, `strona` pl)
+- Page 1 renders as clean base URL; pages 2+ as `/{slug}-{n}` (e.g. `/seite-2`)
+
+---
+
 ## [1.0.0] — 2026-03-13
 
 ### Initial release
