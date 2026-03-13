@@ -1,10 +1,28 @@
 # OT Gallery — TYPO3 Gallery Extension
 
-A modern, accessible gallery extension for TYPO3 v13 with responsive images, lightbox support, server-side pagination, and optional image pre-processing via CLI.
+A gallery extension for TYPO3 v13 built around one core idea: **image sizes are calculated mathematically from your Bootstrap grid configuration**, and all variants are pre-generated via CLI — so the first page load after a cache clear is just as fast as every subsequent one.
 
 [![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
 [![PHP](https://img.shields.io/badge/PHP-8.3+-blue.svg)](https://php.net/)
 [![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green.svg)](LICENSE)
+
+---
+
+## Why another gallery extension?
+
+Most TYPO3 gallery extensions generate processed images on the first frontend request — which means a slow, blocking page load whenever the TYPO3 cache is cleared. They also require you to manually specify image widths that match your grid, or they produce srcset values that don't match the actual rendered size.
+
+OT Gallery takes a different approach:
+
+- **Sizes are derived from your grid, not guessed.** You configure your Bootstrap 5 container widths, gutters and column counts once in the SiteSet. The extension calculates exact pixel widths for every breakpoint — including HiDPI variants — and generates a mathematically correct `sizes` attribute.
+
+- **A CLI command pre-generates every variant before deployment.** `gallery:process` uses the same internal processing pipeline as the frontend renderer, so the browser's first request hits the file system cache directly. No cold-start penalty, no server spike on cache clear.
+
+- **Zero TypoScript.** The entire configuration lives in TYPO3 v13 SiteSets. No setup.typoscript, no constants, no conditions.
+
+- **Minimal JavaScript.** The gallery itself requires only Bootstrap 5 (which you likely already have) and optionally Fancybox 5 for the lightbox. No custom gallery framework, no jQuery.
+
+- **Server-side pagination** means the gallery works correctly with hundreds of images and remains SEO-friendly — no JavaScript rendering required for content that search engines need to index.
 
 ---
 
@@ -247,6 +265,21 @@ tt_content.ot_gallery {
 | `ot:gallerySrcset` | Generates `srcset` attribute string for all unique widths |
 | `ot:galleryImageSrc` | Returns processed image URL for a single width (use for `src` fallback) |
 | `ot:lightboxCaption` | Assembles lightbox caption string from image metadata fields |
+
+---
+
+## SiteKit Integration (optional)
+
+If your project uses [OT SiteKit Base](https://github.com/oliverthiele/ot-sitekit-base), the extension ships with a `Configuration/SiteKit.yaml` that registers `ot_gallery` with the SiteKit grid system:
+
+```yaml
+elements:
+  - ctype: ot_gallery
+    groups: [group_content_wide]
+    grid: { minCols: 6, requiresFullWidth: false }
+```
+
+This tells SiteKit that the gallery requires at least 6 grid columns and does not need to span the full width. Without SiteKit installed, this file is simply ignored.
 
 ---
 

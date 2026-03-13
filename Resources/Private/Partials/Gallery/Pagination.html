@@ -6,21 +6,43 @@
 
         <f:if condition="{pagination.previousPageNumber}">
             <li class="page-item">
-                <a class="page-link"
-                   href="{f:uri.page(additionalParams: {tx_otgallery_page: pagination.previousPageNumber})}"
-                   aria-label="{f:translate(key: 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.pagination.previous')}">
-                    &laquo;
-                </a>
+                <f:if condition="{pagination.previousPageNumber} == 1">
+                    <f:then>
+                        <a class="page-link"
+                           href="{f:uri.page()}"
+                           aria-label="{f:translate(key: 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.pagination.previous')}">
+                            &laquo;
+                        </a>
+                    </f:then>
+                    <f:else>
+                        <a class="page-link"
+                           href="{f:uri.page(additionalParams: {tx_otgallery_page: pagination.previousPageNumber})}"
+                           aria-label="{f:translate(key: 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.pagination.previous')}">
+                            &laquo;
+                        </a>
+                    </f:else>
+                </f:if>
             </li>
         </f:if>
 
         <f:for each="{pagination.allPageNumbers}" as="page">
             <li class="page-item {f:if(condition: '{page} == {paginator.currentPageNumber}', then: 'active')}">
-                <a class="page-link"
-                   href="{f:uri.page(additionalParams: {tx_otgallery_page: page})}"
-                   aria-current="{f:if(condition: '{page} == {paginator.currentPageNumber}', then: 'page')}">
-                    {page}
-                </a>
+                <f:if condition="{page} == 1">
+                    <f:then>
+                        <a class="page-link"
+                           href="{f:uri.page()}"
+                           aria-current="{f:if(condition: '{paginator.currentPageNumber} == 1', then: 'page')}">
+                            1
+                        </a>
+                    </f:then>
+                    <f:else>
+                        <a class="page-link"
+                           href="{f:uri.page(additionalParams: {tx_otgallery_page: page})}"
+                           aria-current="{f:if(condition: '{page} == {paginator.currentPageNumber}', then: 'page')}">
+                            {page}
+                        </a>
+                    </f:else>
+                </f:if>
             </li>
         </f:for>
 

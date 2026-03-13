@@ -7,9 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] — 2026-03-13
+
+### Changed
+
+- **Pagination URLs**: cHash-free via `StaticRangeMapper` (pages 1–100)
+- **Pagination URLs**: locale-aware URL segment via `LocaleModifier` (`page` en, `seite` de, `pagina` nl/es/it, `strona` pl)
+- Page 1 renders as clean base URL; pages 2+ as `/{slug}-{n}` (e.g. `/seite-2`)
+
+---
+
 ## [1.0.0] — 2026-03-13
 
 ### Initial release
+
+#### Pagination URLs
+- SEO-friendly, cHash-free pagination URLs via TYPO3 Route Enhancer (`Simple` type)
+- `StaticRangeMapper` aspect (pages 1–100) eliminates cHash requirement
+- `LocaleModifier` aspect for locale-aware URL segment: `page` (default/en), `seite` (de), `pagina` (nl/es/it), `strona` (pl)
+- Page 1 renders as clean base URL (no `/page-1` suffix); pages 2+ render as `/{slug}-{n}`
 
 #### Image rendering
 - Responsive `<img srcset sizes>` with WebP format
@@ -43,7 +59,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 #### Sorting & pagination
 - Sort by filename, date, or custom FAL order — ascending or descending
 - Server-side pagination via TYPO3 `ArrayPaginator` + `SimplePagination`
-- SEO-friendly pagination URLs via TYPO3 Route Enhancer
 - Items per page: SiteSet default, overridable per content element
 
 #### CLI pre-processing (`gallery:process`)
@@ -62,7 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### ViewHelpers
 - `GallerySrcsetViewHelper` — generates `srcset` attribute string for all unique widths
-- `GalleryImageSrcViewHelper` — generates single processed image URL for `src` fallback attribute, using identical processing instructions to `GallerySrcsetViewHelper`
+- `GalleryImageSrcViewHelper` — generates single processed image URL for `src` fallback; uses identical `ImageService::applyProcessingInstructions()` call as `GallerySrcsetViewHelper` and CLI, guaranteeing exact `sys_file_processedfile` cache hits
 - `LightboxCaptionViewHelper` — assembles lightbox caption from image metadata fields
 
 #### Code quality
