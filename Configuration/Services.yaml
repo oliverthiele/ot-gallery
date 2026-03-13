@@ -17,3 +17,6 @@ services:
 
   OliverThiele\OtGallery\ViewHelpers\LightboxCaptionViewHelper:
     public: true
+
+  OliverThiele\OtGallery\ViewHelpers\GalleryImageSrcViewHelper:
+    public: true
