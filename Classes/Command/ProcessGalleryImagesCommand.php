@@ -14,11 +14,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Exception\SiteNotFoundException;
 use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Site\SiteFinder;
+use TYPO3\CMS\Extbase\Service\ImageService;
 
 #[AsCommand(
     name: 'gallery:process',
@@ -28,6 +30,7 @@ final class ProcessGalleryImagesCommand extends Command
 {
     public function __construct(
         private readonly ImageSizeCalculatorService $imageSizeCalculatorService,
+        private readonly ImageService $imageService,
         private readonly ResourceFactory $resourceFactory,
         private readonly FileRepository $fileRepository,
         private readonly FlexFormService $flexFormService,
@@ -90,7 +93,7 @@ final class ProcessGalleryImagesCommand extends Command
             $imageWidths = $this->imageSizeCalculatorService->calculateImageWidths($settings, $calculatorRecord);
 
             $io->writeln(sprintf(
-                '  <comment>PROC</comment> CE #%d "%s" — %d images × %d sizes',
+                '  <comment>PROC</comment> CE #%d "%s" — %d image(s) × %d size(s)',
                 $record['uid'],
                 $record['header'] ?: '(no title)',
                 count($files),
@@ -213,8 +216,13 @@ final class ProcessGalleryImagesCommand extends Command
     }
 
     /**
+     * Returns images for a gallery record.
+     * FAL source: returns FileReference[] so ImageService can apply per-reference crop settings,
+     * producing cache keys identical to those generated on the frontend.
+     * Folder source: returns File[] (no file references exist for folder-based galleries).
+     *
      * @param array<string, mixed> $record
-     * @return File[]
+     * @return FileInterface[]
      */
     private function getFilesForRecord(array $record): array
     {
@@ -238,8 +246,11 @@ final class ProcessGalleryImagesCommand extends Command
             return $files;
         }
 
-        $refs = $this->fileRepository->findByRelation('tt_content', 'assets', (int)$record['uid']);
-        return array_map(static fn($ref) => $ref->getOriginalFile(), $refs);
+        // Return FileReference objects — not getOriginalFile() — so that crop settings
+        // from sys_file_reference are included in the processing instructions.
+        // This ensures the CLI generates the same sys_file_processedfile cache entries
+        // as the frontend GallerySrcsetViewHelper, avoiding a full reprocess on first page load.
+        return $this->fileRepository->findByRelation('tt_content', 'assets', (int)$record['uid']);
     }
 
     /**
@@ -270,10 +281,14 @@ final class ProcessGalleryImagesCommand extends Command
     }
 
     /**
-     * Processes files using the same instructions as GallerySrcsetViewHelper
-     * to ensure cache hits on the first frontend page load.
+     * Processes files using ImageService::applyProcessingInstructions() — identical to
+     * GallerySrcsetViewHelper — so the resulting sys_file_processedfile cache entries
+     * are guaranteed to match what the frontend requests.
      *
-     * @param File[] $files
+     * For FAL-source galleries, $files contains FileReference objects so that
+     * per-reference crop settings are included in the cache key.
+     *
+     * @param FileInterface[] $files
      * @param array<string, int> $imageWidths
      */
     private function processFiles(array $files, array $imageWidths, SymfonyStyle $io): int
@@ -284,8 +299,8 @@ final class ProcessGalleryImagesCommand extends Command
         foreach ($files as $file) {
             foreach ($uniqueWidths as $width) {
                 try {
-                    $file->process(
-                        \TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK,
+                    $this->imageService->applyProcessingInstructions(
+                        $file,
                         ['width' => $width, 'fileExtension' => 'webp']
                     );
                 } catch (\Exception $e) {
