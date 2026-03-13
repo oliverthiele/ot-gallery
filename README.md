@@ -11,14 +11,14 @@ A modern, accessible gallery extension for TYPO3 v13 with responsive images, lig
 ## Features
 
 - **Responsive images** — `<img srcset>` with WebP format, calculated from container widths, gutter and column configuration
-- **Lightbox** — Fancybox (default), configurable or disabled per content element
+- **Lightbox** — Fancybox, enable/disable per content element via checkbox; caption fields (title/description/copyright) configurable via SiteSet
 - **Two image sources** — FAL file selection or folder (including recursive subfolders, multiple folders)
 - **Three layout modes** — Grid, Masonry (CSS columns, no CLS), Justified (planned)
 - **Aspect ratio + rendering** — Free, 1:1, 4:3, 3:2, 16:9 with cover/contain/fill per content element
 - **Server-side pagination** — Cached, SEO-friendly URLs via TYPO3 Route Enhancer
-- **FAL metadata** — Title (figcaption), description, copyright via three-dot menu
+- **FAL metadata** — Figcaption (title/description/copyright, optional `visually-hidden`) and three-dot context menu (title/description/copyright) — each field toggled independently per content element
 - **Per-image download** — Optional download button in three-dot context menu
-- **CLI pre-processing** — Pre-generate all image variants to avoid server load on cache clear
+- **CLI pre-processing** — Pre-generate all image variants to avoid server load on cache clear; uses `ImageService` to guarantee identical cache keys with the frontend
 - **SiteSet configuration** — All defaults configurable via TYPO3 v13 SiteSets (no TypoScript)
 - **Bootstrap 5** — Grid, pagination, dropdown components
 - **Accessible** — ARIA labels, keyboard navigation, `visually-hidden` screen reader text
@@ -132,12 +132,19 @@ All settings can be configured in your site's SiteSet or overridden per content 
 | `otGallery.grid.container.xl.maxWidth` | `1140` | Container max-width at xl in px |
 | `otGallery.grid.container.xxl.maxWidth` | `1320` | Container max-width at xxl in px |
 
-### Images
+### Thumbnail Defaults
 
 | Setting | Default | Description |
 |---|---|---|
 | `otGallery.thumbnail.aspectRatio` | `free` | Default aspect ratio (`free`, `1:1`, `4:3`, `3:2`, `16:9`) |
 | `otGallery.thumbnail.rendering` | `cover` | Object-fit mode (`cover`, `contain`, `fill`) |
+
+### Lightbox
+
+| Setting | Default | Description |
+|---|---|---|
+| `otGallery.lightbox.captionFields` | `title,description,copyright` | Comma-separated fields shown in lightbox caption |
+| `otGallery.lightbox.dataAttribute` | `data-fancybox` | HTML data attribute used to trigger the lightbox |
 
 ### Pagination
 
@@ -160,20 +167,19 @@ All settings can be configured in your site's SiteSet or overridden per content 
 ### Layout tab
 - **Layout** — Grid / Masonry
 - **Aspect ratio** — Free / 1:1 / 4:3 / 3:2 / 16:9
-- **Rendering** — Cover / Contain / Fill
+- **Rendering** — Cover / Contain / Fill (visible only when aspect ratio is not free)
 - **Column override** — Override default columns per breakpoint
 
 ### Sort tab
 - **Sort field** — By filename / date / custom (FAL sort order)
 - **Sort direction** — Ascending / Descending
-- **Items per page** — Override SiteSet default (0 = use default)
+- **Items per page** — Override SiteSet default (0 = use SiteSet default)
 
 ### Features tab
-- **Lightbox** — Fancybox / None / Custom
-- **Show title** — Display title as figcaption
-- **Show description** — Show in three-dot menu
-- **Show copyright** — Show in three-dot menu
-- **Enable download** — Per-image download in three-dot menu
+- **Enable lightbox** — Checkbox; activates Fancybox for all images in this element
+- **Figcaption group** — Show title / description / copyright below each image; optionally `visually-hidden` (screen readers only)
+- **Menu group** — Show title / description / copyright in the three-dot context menu per image
+- **Enable download** — Per-image download button in the three-dot context menu
 
 ---
 
@@ -193,9 +199,14 @@ vendor/bin/typo3 gallery:process --unprocessed-only
 
 # Dry run (show what would be processed)
 vendor/bin/typo3 gallery:process --dry-run
+
+# Verbose output (show widths and column info per breakpoint)
+vendor/bin/typo3 gallery:process -v
 ```
 
-The command uses a configuration hash (`MD5`) stored per content element to detect when image dimensions need to be recalculated (e.g. after changing column counts).
+The command uses a configuration hash (`MD5`) stored per content element to detect when image dimensions need to be recalculated (e.g. after changing column counts or SiteSet grid settings).
+
+The CLI uses `ImageService::applyProcessingInstructions()` — identical to the frontend ViewHelpers — so the pre-generated files produce exact cache hits on the first page load. No images are re-processed by the frontend.
 
 ---
 
@@ -221,11 +232,21 @@ tt_content.ot_gallery {
 | `{gallery.paginator}` | `ArrayPaginator` | TYPO3 paginator object |
 | `{gallery.pagination}` | `SimplePagination` | TYPO3 pagination object |
 | `{gallery.sizesAttribute}` | `string` | Calculated `sizes` attribute string |
-| `{gallery.imageWidths}` | `array` | Calculated widths per breakpoint |
+| `{gallery.imageWidths}` | `array` | Calculated widths per breakpoint (incl. `@2x` keys) |
 | `{gallery.rowColsClasses}` | `string` | Bootstrap `row-cols-*` class string |
-| `{gallery.aspectRatioCss}` | `string` | CSS-formatted ratio (`4/3`) or empty |
+| `{gallery.aspectRatioCss}` | `string` | CSS-formatted ratio (`4/3`) or empty string |
+| `{gallery.effectiveLayout}` | `string` | Active layout name (`grid`, `masonry`, …) |
 | `{gallery.flex}` | `array` | All FlexForm settings |
+| `{gallery.lightboxCaptionFields}` | `array` | Map of `title/description/copyright => bool` for lightbox captions |
 | `{gallery.source}` | `string` | `files` or `folder` |
+
+### ViewHelpers
+
+| ViewHelper | Description |
+|---|---|
+| `ot:gallerySrcset` | Generates `srcset` attribute string for all unique widths |
+| `ot:galleryImageSrc` | Returns processed image URL for a single width (use for `src` fallback) |
+| `ot:lightboxCaption` | Assembles lightbox caption string from image metadata fields |
 
 ---
 
@@ -236,6 +257,7 @@ tt_content.ot_gallery {
 - **Folder/image sidecar files** — `gallery.json` per folder, `image.jpg.json` per image for metadata without EXIF
 - **ZIP download** — Pre-generated ZIP via CLI, served by middleware
 - **EXIF display** — Camera, aperture, shutter speed, ISO, date in metadata overlay
+- **Search / Filter** — Server-side via middleware or Extbase plugin (client-side not feasible with server-side pagination)
 
 ---
 
