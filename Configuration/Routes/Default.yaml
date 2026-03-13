@@ -4,6 +4,7 @@
 # imports:
 #   - { resource: 'EXT:ot_gallery/Configuration/Routes/Default.yaml' }
 #
-# Result: ?tx_otgallery_page=2  →  /page-2
+# Result: ?tx_otgallery_page=2  →  /page-2  (en) / /seite-2  (de)
+# Uses StaticRangeMapper (pages 1-100) and LocaleModifier for cHash-free URLs.
 imports:
   - { resource: 'EXT:ot_gallery/Configuration/Routes/Pagination.yaml' }
