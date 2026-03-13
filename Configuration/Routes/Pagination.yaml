@@ -1,0 +1,10 @@
+routeEnhancers:
+  OtGalleryPagination:
+    type: Simple
+    routePath: '/page-{page}'
+    _arguments:
+      page: tx_otgallery_page
+    requirements:
+      page: '\d+'
+    defaults:
+      page: ''

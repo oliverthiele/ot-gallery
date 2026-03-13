@@ -1,0 +1,140 @@
+categories:
+  OtGallery:
+  OtGallery.grid:
+    parent: OtGallery
+  OtGallery.grid.breakpoints:
+    parent: OtGallery.grid
+  OtGallery.grid.container:
+    parent: OtGallery.grid
+  OtGallery.thumbnail:
+    parent: OtGallery
+  OtGallery.lightbox:
+    parent: OtGallery
+  OtGallery.pagination:
+    parent: OtGallery
+  OtGallery.processing:
+    parent: OtGallery
+
+settings:
+  # Grid - Columns per breakpoint
+  otGallery.grid.columns.xs:
+    category: OtGallery.grid.breakpoints
+    type: int
+    default: 1
+
+  otGallery.grid.columns.sm:
+    category: OtGallery.grid.breakpoints
+    type: int
+    default: 2
+
+  otGallery.grid.columns.md:
+    category: OtGallery.grid.breakpoints
+    type: int
+    default: 3
+
+  otGallery.grid.columns.lg:
+    category: OtGallery.grid.breakpoints
+    type: int
+    default: 4
+
+  otGallery.grid.columns.xl:
+    category: OtGallery.grid.breakpoints
+    type: int
+    default: 5
+
+  otGallery.grid.columns.xxl:
+    category: OtGallery.grid.breakpoints
+    type: int
+    default: 6
+
+  # Grid - Gutter (px between columns)
+  otGallery.grid.gutter:
+    category: OtGallery.grid
+    type: int
+    default: 24
+
+  # Grid - Container padding (px per side, total = 2x)
+  otGallery.grid.container.padding:
+    category: OtGallery.grid.container
+    type: int
+    default: 12
+
+  # Grid - Container max-widths (Bootstrap 5 defaults)
+  otGallery.grid.container.sm.maxWidth:
+    category: OtGallery.grid.container
+    type: int
+    default: 540
+
+  otGallery.grid.container.md.maxWidth:
+    category: OtGallery.grid.container
+    type: int
+    default: 720
+
+  otGallery.grid.container.lg.maxWidth:
+    category: OtGallery.grid.container
+    type: int
+    default: 960
+
+  otGallery.grid.container.xl.maxWidth:
+    category: OtGallery.grid.container
+    type: int
+    default: 1140
+
+  otGallery.grid.container.xxl.maxWidth:
+    category: OtGallery.grid.container
+    type: int
+    default: 1320
+
+  # Thumbnail
+  otGallery.thumbnail.aspectRatio:
+    category: OtGallery.thumbnail
+    type: string
+    default: 'free'
+    enum:
+      free: 'Original (free)'
+      '1:1': '1:1 (Square)'
+      '4:3': '4:3'
+      '3:2': '3:2 (Photo)'
+      '16:9': '16:9 (Widescreen)'
+
+  otGallery.thumbnail.rendering:
+    category: OtGallery.thumbnail
+    type: string
+    default: 'cover'
+    enum:
+      cover: 'Cover (crop to fill)'
+      contain: 'Contain (letterbox)'
+      fill: 'Fill (stretch)'
+
+  # Lightbox
+  otGallery.lightbox.captionFields:
+    category: OtGallery.lightbox
+    type: string
+    default: 'title,description,copyright'
+
+  otGallery.lightbox.dataAttribute:
+    category: OtGallery.lightbox
+    type: string
+    default: 'data-fancybox'
+
+  # Pagination
+  otGallery.pagination.itemsPerPage:
+    category: OtGallery.pagination
+    type: int
+    default: 48
+
+  # Processing / Pre-rendering
+  otGallery.processing.hiDpi:
+    category: OtGallery.processing
+    type: bool
+    default: true
+
+  otGallery.processing.webp.quality:
+    category: OtGallery.processing
+    type: int
+    default: 82
+
+  otGallery.processing.jpeg.quality:
+    category: OtGallery.processing
+    type: int
+    default: 85

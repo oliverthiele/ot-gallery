@@ -1,0 +1,40 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<nav class="ot-gallery-pagination" aria-label="{f:translate(key: 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.pagination.page')}">
+    <ul class="pagination justify-content-center">
+
+        <f:if condition="{pagination.previousPageNumber}">
+            <li class="page-item">
+                <a class="page-link"
+                   href="{f:uri.page(additionalParams: {tx_otgallery_page: pagination.previousPageNumber})}"
+                   aria-label="{f:translate(key: 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.pagination.previous')}">
+                    &laquo;
+                </a>
+            </li>
+        </f:if>
+
+        <f:for each="{pagination.allPageNumbers}" as="page">
+            <li class="page-item {f:if(condition: '{page} == {paginator.currentPageNumber}', then: 'active')}">
+                <a class="page-link"
+                   href="{f:uri.page(additionalParams: {tx_otgallery_page: page})}"
+                   aria-current="{f:if(condition: '{page} == {paginator.currentPageNumber}', then: 'page')}">
+                    {page}
+                </a>
+            </li>
+        </f:for>
+
+        <f:if condition="{pagination.nextPageNumber}">
+            <li class="page-item">
+                <a class="page-link"
+                   href="{f:uri.page(additionalParams: {tx_otgallery_page: pagination.nextPageNumber})}"
+                   aria-label="{f:translate(key: 'LLL:EXT:ot_gallery/Resources/Private/Language/locallang.xlf:gallery.pagination.next')}">
+                    &raquo;
+                </a>
+            </li>
+        </f:if>
+
+    </ul>
+</nav>
+
+</html>

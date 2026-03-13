@@ -1,0 +1,22 @@
+tt_content.ot_gallery =< lib.contentElement
+tt_content.ot_gallery {
+  templateName = Gallery/List
+  templateRootPaths {
+    10 = EXT:ot_gallery/Resources/Private/Templates/
+  }
+
+  partialRootPaths {
+    10 = EXT:ot_gallery/Resources/Private/Partials/
+  }
+
+  layoutRootPaths {
+    10 = EXT:ot_gallery/Resources/Private/Layouts/
+  }
+
+  dataProcessing {
+    10 = OliverThiele\OtGallery\DataProcessing\GalleryProcessor
+    10 {
+      as = gallery
+    }
+  }
+}

@@ -1,0 +1,283 @@
+// =============================================================================
+// OT Gallery — Example SCSS
+// Copy this file into your project build or @use/@forward it.
+// Requires Bootstrap 5 variables (spacing, colors, transitions, breakpoints).
+// =============================================================================
+
+.ot-gallery {
+
+    // -------------------------------------------------------------------------
+    // Grid: row-cols-* classes from Bootstrap handle column layout.
+    // Gutter via Bootstrap's g-* or customize below.
+    // -------------------------------------------------------------------------
+    &-grid {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    &-item {
+        list-style: none;
+    }
+
+    // -------------------------------------------------------------------------
+    // Figure / media wrapper
+    // -------------------------------------------------------------------------
+    &-figure {
+        position: relative;
+        margin: 0;
+    }
+
+    &-media {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--bs-border-radius, 0.375rem);
+
+        // Aspect ratio wrapper — set via CSS custom property from TypoScript/Fluid
+        // e.g. style="--ot-gallery-ratio: 3/2"
+        &[style*="--ot-gallery-ratio"] {
+            aspect-ratio: var(--ot-gallery-ratio);
+
+            .ot-gallery-picture,
+            .ot-gallery-img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: var(--ot-gallery-rendering, cover);
+            }
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Image
+    // -------------------------------------------------------------------------
+    &-picture {
+        display: block;
+        width: 100%;
+    }
+
+    &-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+    }
+
+    // -------------------------------------------------------------------------
+    // Link wrapper
+    // -------------------------------------------------------------------------
+    &-link {
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            .ot-gallery-img {
+                transform: scale(1.04);
+            }
+
+            .ot-gallery-overlay {
+                opacity: 1;
+            }
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--bs-focus-ring-color, #0d6efd);
+            outline-offset: 2px;
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // Hover overlay (zoom icon)
+    // -------------------------------------------------------------------------
+    &-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    &-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+
+        svg {
+            fill: currentColor;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+        }
+    }
+
+    &-icon-zoom {
+        width: 48px;
+        height: 48px;
+    }
+
+    // -------------------------------------------------------------------------
+    // Three-dot context menu (download, title, description, copyright)
+    // -------------------------------------------------------------------------
+    &-menu {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        z-index: 10;
+    }
+
+    &-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.2s ease, background-color 0.2s ease;
+
+        // Hide Bootstrap's default caret
+        &::after {
+            display: none;
+        }
+
+        svg {
+            fill: currentColor;
+        }
+
+        &:hover,
+        &:focus-visible,
+        &[aria-expanded="true"] {
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--bs-focus-ring-color, #0d6efd);
+            outline-offset: 2px;
+            opacity: 1;
+        }
+
+        &[aria-expanded="true"] {
+            opacity: 1;
+        }
+    }
+
+    &-figure:hover &-menu-btn {
+        opacity: 1;
+    }
+
+    &-menu-list {
+        min-width: 200px;
+        font-size: 0.875rem;
+    }
+
+    &-menu-download {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        svg {
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+    }
+
+    &-menu-title,
+    &-menu-description,
+    &-menu-copyright {
+        display: block;
+        white-space: normal;
+        color: var(--bs-secondary-color, #6c757d);
+        font-size: 0.8125rem;
+        line-height: 1.4;
+    }
+
+    // -------------------------------------------------------------------------
+    // Figcaption
+    // -------------------------------------------------------------------------
+    &-caption {
+        padding: 0.4rem 0.25rem 0;
+        font-size: 0.85em;
+    }
+
+    &-title {
+        display: block;
+        font-weight: 500;
+        color: var(--bs-body-color);
+    }
+
+    &-description {
+        display: block;
+        color: var(--bs-secondary-color, #6c757d);
+    }
+
+    &-copyright {
+        display: block;
+        color: var(--bs-secondary-color, #6c757d);
+    }
+
+    // -------------------------------------------------------------------------
+    // Image counter (visually hidden via Bootstrap utility on the element)
+    // -------------------------------------------------------------------------
+    &-count {
+        // visually-hidden via Bootstrap utility class on the element itself
+    }
+
+    // -------------------------------------------------------------------------
+    // Footer: pagination
+    // -------------------------------------------------------------------------
+    &-footer {
+        margin-top: 1.5rem;
+    }
+
+    // -------------------------------------------------------------------------
+    // Pagination
+    // -------------------------------------------------------------------------
+    &-pagination {
+        flex: 1 1 auto;
+    }
+
+    // -------------------------------------------------------------------------
+    // Layout variant: Masonry (CSS columns — no CLS)
+    // Activated via data-variant="masonry" on the .ot-gallery element
+    // -------------------------------------------------------------------------
+    &[data-variant="masonry"] {
+        .ot-gallery-grid {
+            display: block;
+            columns: 2;
+            column-gap: var(--bs-gutter-x, 1rem);
+            // Remove Bootstrap row margins and gutter-y so first items are flush top
+            margin-left: 0;
+            margin-right: 0;
+            --bs-gutter-y: 0;
+
+            @media (min-width: 576px) { columns: 2; }
+            @media (min-width: 768px) { columns: 3; }
+            @media (min-width: 992px) { columns: 4; }
+            @media (min-width: 1200px) { columns: 5; }
+            @media (min-width: 1400px) { columns: 6; }
+        }
+
+        .ot-gallery-item {
+            display: block;
+            break-inside: avoid;
+            // Remove Bootstrap col padding — column-gap handles horizontal spacing
+            padding-left: 0;
+            padding-right: 0;
+            margin-bottom: var(--bs-gutter-x, 1rem);
+            width: 100%;
+        }
+    }
+}

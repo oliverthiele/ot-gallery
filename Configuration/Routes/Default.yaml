@@ -1,0 +1,9 @@
+# Gallery pagination routing.
+# Import in your site configuration:
+#
+# imports:
+#   - { resource: 'EXT:ot_gallery/Configuration/Routes/Default.yaml' }
+#
+# Result: ?tx_otgallery_page=2  →  /page-2
+imports:
+  - { resource: 'EXT:ot_gallery/Configuration/Routes/Pagination.yaml' }
