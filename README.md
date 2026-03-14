@@ -3,8 +3,10 @@
 A gallery extension for TYPO3 v13 built around one core idea: **image sizes are calculated mathematically from your Bootstrap grid configuration**, and all variants are pre-generated via CLI — so the first page load after a cache clear is just as fast as every subsequent one.
 
 [![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
-[![PHP](https://img.shields.io/badge/PHP-8.3+-blue.svg)](https://php.net/)
-[![License](https://img.shields.io/badge/License-GPL--2.0--or--later-green.svg)](LICENSE)
+[![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-gallery.svg)](https://packagist.org/packages/oliverthiele/ot-gallery)
+[![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-gallery/php.svg)](https://php.net/)
+[![License](https://img.shields.io/packagist/l/oliverthiele/ot-gallery.svg)](LICENSE)
+[![Changelog](https://img.shields.io/badge/Changelog-CHANGELOG.md-blue.svg)](CHANGELOG.md)
 
 ---
 
