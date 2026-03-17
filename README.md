@@ -20,7 +20,7 @@ OT Gallery takes a different approach:
 
 - **A CLI command pre-generates every variant before deployment.** `gallery:process` uses the same internal processing pipeline as the frontend renderer, so the browser's first request hits the file system cache directly. No cold-start penalty, no server spike on cache clear.
 
-- **Zero TypoScript.** The entire configuration lives in TYPO3 v13 SiteSets. No setup.typoscript, no constants, no conditions.
+- **SiteSet configuration** — TypoScript is provided as a TYPO3 v13 SiteSet; no manual TypoScript includes required, just add the extension as a SiteSet dependency.
 
 - **Minimal JavaScript.** The gallery itself requires only Bootstrap 5 (which you likely already have) and optionally Fancybox 5 for the lightbox. No custom gallery framework, no jQuery.
 
