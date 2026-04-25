@@ -318,7 +318,7 @@ final class ImageSizeCalculatorServiceTest extends UnitTestCase
     #[Test]
     public function calculateConfigHashChangesWhenAspectRatioRecordValueChanges(): void
     {
-        $recordFree  = ['tx_otgallery_aspect_ratio' => 'free',  'tx_otgallery_rendering' => 'cover'];
+        $recordFree  = ['tx_otgallery_aspect_ratio' => 'free', 'tx_otgallery_rendering' => 'cover'];
         $recordFixed = ['tx_otgallery_aspect_ratio' => '16:9', 'tx_otgallery_rendering' => 'cover'];
 
         $hashFree  = $this->subject->calculateConfigHash($this->defaultSettings, $recordFree);

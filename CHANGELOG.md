@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] — 2026-04-25
+
+### Added
+
+- TYPO3 v14.3 support (`^13.4||^14.3`)
+
+### Changed
+
+- Apply PHP CS Fixer formatting
+- Update README documentation and badges
+
+---
+
 ## [1.1.0] — 2026-03-13
 
 ### Changed
