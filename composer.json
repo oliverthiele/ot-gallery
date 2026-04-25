@@ -1,9 +1,11 @@
 {
 	"name": "oliverthiele/ot-gallery",
 	"type": "typo3-cms-extension",
-	"description": "Gallery extension with pre-processing, srcset, lightbox, metadata and pagination for TYPO3 v13.",
+	"description": "Gallery - Gallery extension with pre-processing, srcset, lightbox, metadata and pagination for TYPO3 v13.",
 	"homepage": "https://github.com/oliverthiele/ot-gallery",
-	"license": ["GPL-2.0-or-later"],
+	"license": [
+		"GPL-2.0-or-later"
+	],
 	"authors": [
 		{
 			"name": "Oliver Thiele",
@@ -14,7 +16,7 @@
 	],
 	"require": {
 		"php": ">=8.3.0",
-		"typo3/cms-core": "^13.4.0"
+		"typo3/cms-core": "^13.4||^14.3"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-latest",
