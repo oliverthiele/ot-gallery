@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace OliverThiele\OtGallery\DataProcessing;
 
 use OliverThiele\OtGallery\Service\ImageSizeCalculatorService;
+use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Pagination\ArrayPaginator;
 use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Core\Resource\AbstractFile;
@@ -14,7 +15,6 @@ use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Resource\Folder;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
-use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
@@ -25,7 +25,7 @@ final class GalleryProcessor implements DataProcessorInterface
         private readonly ResourceFactory $resourceFactory,
         private readonly FileRepository $fileRepository,
         private readonly ImageSizeCalculatorService $imageSizeCalculatorService,
-        private readonly FlexFormService $flexFormService,
+        private readonly FlexFormTools $flexFormTools,
     ) {
     }
 
@@ -125,9 +125,9 @@ final class GalleryProcessor implements DataProcessorInterface
             return [];
         }
 
-        $data = $this->flexFormService->convertFlexFormContentToArray($flexFormXml);
+        $data = $this->flexFormTools->convertFlexFormContentToArray($flexFormXml);
 
-        // FlexFormService returns ['settings' => [...]] — we flatten one level
+        // FlexFormTools returns ['settings' => [...]] — we flatten one level
         return $data['settings'] ?? [];
     }
 
