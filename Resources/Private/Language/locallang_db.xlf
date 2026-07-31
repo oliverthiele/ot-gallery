@@ -1,196 +1,256 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file source-language="en" datatype="plaintext"
-		  original="EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf"
-		  date="2026-03-10T00:00:00Z" product-name="ot_gallery">
-		<header/>
-		<body>
-			<trans-unit id="tx_otgallery_list.name" resname="tx_otgallery_list.name">
-				<source>Gallery</source>
-			</trans-unit>
-			<trans-unit id="tx_otgallery_list.description" resname="tx_otgallery_list.description">
-				<source>Gallery with srcset, lightbox, metadata and pagination.</source>
-			</trans-unit>
-
-			<!-- FlexForm sheet titles -->
-			<trans-unit id="flexform.sheet.layout" resname="flexform.sheet.layout">
-				<source>Layout</source>
-			</trans-unit>
-			<trans-unit id="flexform.sheet.sort" resname="flexform.sheet.sort">
-				<source>Sort &amp; Pagination</source>
-			</trans-unit>
-			<trans-unit id="flexform.sheet.features" resname="flexform.sheet.features">
-				<source>Features</source>
-			</trans-unit>
-
-			<!-- Tabs -->
-			<trans-unit id="tab.images" resname="tab.images">
-				<source>Images</source>
-			</trans-unit>
-			<trans-unit id="tab.layout" resname="tab.layout">
-				<source>Layout</source>
-			</trans-unit>
-			<trans-unit id="tab.features" resname="tab.features">
-				<source>Features</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tab.configuration" resname="tt_content.tab.configuration">
-				<source>Configuration</source>
-			</trans-unit>
-
-			<!-- Source -->
-			<trans-unit id="tt_content.tx_otgallery_source" resname="tt_content.tx_otgallery_source">
-				<source>Image Source</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_source.files" resname="tt_content.tx_otgallery_source.files">
-				<source>Individual Images</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_source.folder" resname="tt_content.tx_otgallery_source.folder">
-				<source>Folder</source>
-			</trans-unit>
-
-			<!-- Images / Folder -->
-			<trans-unit id="tt_content.tx_otgallery_images" resname="tt_content.tx_otgallery_images">
-				<source>Images</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_folder" resname="tt_content.tx_otgallery_folder">
-				<source>Folder</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_folder_recursive"
-						resname="tt_content.tx_otgallery_folder_recursive">
-				<source>Include Subfolders</source>
-			</trans-unit>
-
-			<!-- Sorting -->
-			<trans-unit id="tt_content.tx_otgallery_sort_field" resname="tt_content.tx_otgallery_sort_field">
-				<source>Sort by</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_sort_field.name" resname="tt_content.tx_otgallery_sort_field.name">
-				<source>File Name</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_sort_field.date" resname="tt_content.tx_otgallery_sort_field.date">
-				<source>Date</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_sort_field.custom"
-						resname="tt_content.tx_otgallery_sort_field.custom">
-				<source>Custom Order</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_sort_direction" resname="tt_content.tx_otgallery_sort_direction">
-				<source>Sort Direction</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_sort_direction.asc"
-						resname="tt_content.tx_otgallery_sort_direction.asc">
-				<source>Ascending</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_sort_direction.desc"
-						resname="tt_content.tx_otgallery_sort_direction.desc">
-				<source>Descending</source>
-			</trans-unit>
-
-			<!-- Layout -->
-			<trans-unit id="tt_content.tx_otgallery_layout" resname="tt_content.tx_otgallery_layout">
-				<source>Layout</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_layout.grid" resname="tt_content.tx_otgallery_layout.grid">
-				<source>Grid</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_layout.masonry" resname="tt_content.tx_otgallery_layout.masonry">
-				<source>Masonry (CSS)</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_layout.justified"
-						resname="tt_content.tx_otgallery_layout.justified">
-				<source>Justified</source>
-			</trans-unit>
-
-			<!-- Columns override -->
-			<trans-unit id="tt_content.tx_otgallery_columns_override"
-						resname="tt_content.tx_otgallery_columns_override">
-				<source>Override Default Columns</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_columns_xs" resname="tt_content.tx_otgallery_columns_xs">
-				<source>Columns XS</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_columns_sm" resname="tt_content.tx_otgallery_columns_sm">
-				<source>Columns SM</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_columns_md" resname="tt_content.tx_otgallery_columns_md">
-				<source>Columns MD</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_columns_lg" resname="tt_content.tx_otgallery_columns_lg">
-				<source>Columns LG</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_columns_xl" resname="tt_content.tx_otgallery_columns_xl">
-				<source>Columns XL</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_columns_xxl" resname="tt_content.tx_otgallery_columns_xxl">
-				<source>Columns XXL</source>
-			</trans-unit>
-
-			<!-- Thumbnail -->
-			<trans-unit id="tt_content.tx_otgallery_aspect_ratio" resname="tt_content.tx_otgallery_aspect_ratio">
-				<source>Thumbnail Aspect Ratio</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_aspect_ratio.free"
-						resname="tt_content.tx_otgallery_aspect_ratio.free">
-				<source>Original (free)</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_rendering" resname="tt_content.tx_otgallery_rendering">
-				<source>Thumbnail Rendering</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_rendering.cover" resname="tt_content.tx_otgallery_rendering.cover">
-				<source>Cover (crop to fill)</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_rendering.contain"
-						resname="tt_content.tx_otgallery_rendering.contain">
-				<source>Contain (letterbox)</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_rendering.fill" resname="tt_content.tx_otgallery_rendering.fill">
-				<source>Fill (stretch)</source>
-			</trans-unit>
-
-			<!-- Features -->
-			<trans-unit id="tt_content.tx_otgallery_items_per_page" resname="tt_content.tx_otgallery_items_per_page">
-				<source>Items per Page</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_items_per_page.description"
-						resname="tt_content.tx_otgallery_items_per_page.description">
-				<source>0 = use SiteSet default</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_lightbox" resname="tt_content.tx_otgallery_lightbox">
-				<source>Enable Lightbox</source>
-			</trans-unit>
-
-			<!-- Figcaption -->
-			<trans-unit id="tt_content.tx_otgallery_figcaption_title"
-						resname="tt_content.tx_otgallery_figcaption_title">
-				<source>Show Title in Caption</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_figcaption_description"
-						resname="tt_content.tx_otgallery_figcaption_description">
-				<source>Show Description in Caption</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_figcaption_copyright"
-						resname="tt_content.tx_otgallery_figcaption_copyright">
-				<source>Show Copyright in Caption</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_figcaption_visually_hidden"
-						resname="tt_content.tx_otgallery_figcaption_visually_hidden">
-				<source>Caption Visually Hidden (for screen readers / SEO only)</source>
-			</trans-unit>
-
-			<!-- Menu -->
-			<trans-unit id="tt_content.tx_otgallery_menu_title" resname="tt_content.tx_otgallery_menu_title">
-				<source>Show Title in Menu</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_menu_description"
-						resname="tt_content.tx_otgallery_menu_description">
-				<source>Show Description in Menu</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_menu_copyright" resname="tt_content.tx_otgallery_menu_copyright">
-				<source>Show Copyright in Menu</source>
-			</trans-unit>
-			<trans-unit id="tt_content.tx_otgallery_enable_download" resname="tt_content.tx_otgallery_enable_download">
-				<source>Enable Download</source>
-			</trans-unit>
-		</body>
-	</file>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en">
+  <file id="ot-gallery-locallang-db"
+        original="EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf">
+    <unit id="tx_otgallery_list.name">
+      <segment>
+        <source>Gallery</source>
+      </segment>
+    </unit>
+    <unit id="tx_otgallery_list.description">
+      <segment>
+        <source>Gallery with srcset, lightbox, metadata and pagination.</source>
+      </segment>
+    </unit>
+    <unit id="flexform.sheet.layout">
+      <segment>
+        <source>Layout</source>
+      </segment>
+    </unit>
+    <unit id="flexform.sheet.sort">
+      <segment>
+        <source>Sort &amp; Pagination</source>
+      </segment>
+    </unit>
+    <unit id="flexform.sheet.features">
+      <segment>
+        <source>Features</source>
+      </segment>
+    </unit>
+    <unit id="tab.images">
+      <segment>
+        <source>Images</source>
+      </segment>
+    </unit>
+    <unit id="tab.layout">
+      <segment>
+        <source>Layout</source>
+      </segment>
+    </unit>
+    <unit id="tab.features">
+      <segment>
+        <source>Features</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tab.configuration">
+      <segment>
+        <source>Configuration</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_source">
+      <segment>
+        <source>Image Source</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_source.files">
+      <segment>
+        <source>Individual Images</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_source.folder">
+      <segment>
+        <source>Folder</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_images">
+      <segment>
+        <source>Images</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_folder">
+      <segment>
+        <source>Folder</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_folder_recursive">
+      <segment>
+        <source>Include Subfolders</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_sort_field">
+      <segment>
+        <source>Sort by</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_sort_field.name">
+      <segment>
+        <source>File Name</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_sort_field.date">
+      <segment>
+        <source>Date</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_sort_field.custom">
+      <segment>
+        <source>Custom Order</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_sort_direction">
+      <segment>
+        <source>Sort Direction</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_sort_direction.asc">
+      <segment>
+        <source>Ascending</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_sort_direction.desc">
+      <segment>
+        <source>Descending</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_layout">
+      <segment>
+        <source>Layout</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_layout.grid">
+      <segment>
+        <source>Grid</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_layout.masonry">
+      <segment>
+        <source>Masonry (CSS)</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_layout.justified">
+      <segment>
+        <source>Justified</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_columns_override">
+      <segment>
+        <source>Override Default Columns</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_columns_xs">
+      <segment>
+        <source>Columns XS</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_columns_sm">
+      <segment>
+        <source>Columns SM</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_columns_md">
+      <segment>
+        <source>Columns MD</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_columns_lg">
+      <segment>
+        <source>Columns LG</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_columns_xl">
+      <segment>
+        <source>Columns XL</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_columns_xxl">
+      <segment>
+        <source>Columns XXL</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_aspect_ratio">
+      <segment>
+        <source>Thumbnail Aspect Ratio</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_aspect_ratio.free">
+      <segment>
+        <source>Original (free)</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_rendering">
+      <segment>
+        <source>Thumbnail Rendering</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_rendering.cover">
+      <segment>
+        <source>Cover (crop to fill)</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_rendering.contain">
+      <segment>
+        <source>Contain (letterbox)</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_rendering.fill">
+      <segment>
+        <source>Fill (stretch)</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_items_per_page">
+      <segment>
+        <source>Items per Page</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_items_per_page.description">
+      <segment>
+        <source>0 = use SiteSet default</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_lightbox">
+      <segment>
+        <source>Enable Lightbox</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_figcaption_title">
+      <segment>
+        <source>Show Title in Caption</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_figcaption_description">
+      <segment>
+        <source>Show Description in Caption</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_figcaption_copyright">
+      <segment>
+        <source>Show Copyright in Caption</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_figcaption_visually_hidden">
+      <segment>
+        <source>Caption Visually Hidden (for screen readers / SEO only)</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_menu_title">
+      <segment>
+        <source>Show Title in Menu</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_menu_description">
+      <segment>
+        <source>Show Description in Menu</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_menu_copyright">
+      <segment>
+        <source>Show Copyright in Menu</source>
+      </segment>
+    </unit>
+    <unit id="tt_content.tx_otgallery_enable_download">
+      <segment>
+        <source>Enable Download</source>
+      </segment>
+    </unit>
+  </file>
 </xliff>

@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.0.0] — 2026-07-31
+
+### Changed
+
+- **Breaking:** Drop TYPO3 v13 support, require TYPO3 `^14.3`
+- **Breaking:** Raise the PHP minimum to `>=8.4`
+- Migrate the language files from XLIFF 1.2 to XLIFF 2.0. Unit identifiers and
+  all translations are unchanged, so no label reference needs adjusting
+- Reference labels via translation domain mapping instead of full file paths:
+  `ot_gallery.db:` and `core.form.tabs:` replace the verbose `LLL:EXT:`
+  references in the TCA overrides and the FlexForm
+
+### Fixed
+
+- Replace `TYPO3\CMS\Core\Service\FlexFormService`, deprecated in TYPO3 v14 and
+  removed in v15, with `TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` in
+  `GalleryProcessor` and `ProcessGalleryImagesCommand`. The method signature is
+  unchanged, the old class was only a subclass of the new one
+- Register the FlexForm data structure through the `columnsOverrides` of the
+  `ot_gallery` type instead of `ExtensionManagementUtility::addPiFlexFormValue()`,
+  which is deprecated in v14 and removed in v15
+
+---
+
 ## [1.2.0] — 2026-04-25
 
 ### Added

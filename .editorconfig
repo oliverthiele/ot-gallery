@@ -4,26 +4,29 @@
 root = true
 
 # Unix-style newlines with a newline ending every file
-
 [*]
-end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-indent_size = 4
+end_of_line = lf
 indent_style = space
-
-# ReST-Files
-[{*.rst,*.rst.txt}]
-max_line_length = 80
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
 
 # TS/JS-Files
-[*.{ts,js}]
+[*.{ts,js,mjs,vue}]
 indent_size = 2
 
 # JSON-Files
 [*.json]
 indent_style = tab
+
+# ReST-Files
+[*.{rst,rst.txt}]
+max_line_length = 80
+
+# Markdown-Files
+[*.md]
+max_line_length = 80
 
 # YAML-Files
 [*.{yaml,yml}]
@@ -34,6 +37,10 @@ indent_size = 2
 indent_size = 2
 indent_style = tab
 
+# stylelint
+[.stylelintrc]
+indent_size = 2
+
 # package.json
 [package.json]
 indent_size = 2
@@ -42,9 +49,9 @@ indent_size = 2
 [*.{typoscript,tsconfig}]
 indent_size = 2
 
-# xlf, xliff
-[*.xlf]
-indent_style = tab
+# XLF-Files
+[*.{xlf,xliff}]
+indent_size = 2
 
 # SQL-Files
 [*.sql]

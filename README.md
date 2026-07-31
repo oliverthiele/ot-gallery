@@ -4,7 +4,7 @@ A gallery extension for TYPO3 v13 and v14 built around one core idea: **image si
 your Bootstrap grid configuration**, and all variants are pre-generated via CLI — so the first page load after a cache
 clear is just as fast as every subsequent one.
 
-[![TYPO3](https://img.shields.io/badge/TYPO3-13.4-orange.svg)](https://typo3.org/)
+[![TYPO3](https://img.shields.io/badge/TYPO3-14.3-orange.svg)](https://typo3.org/)
 [![Packagist Version](https://img.shields.io/packagist/v/oliverthiele/ot-gallery.svg)](https://packagist.org/packages/oliverthiele/ot-gallery)
 [![PHP](https://img.shields.io/packagist/dependency-v/oliverthiele/ot-gallery/php.svg)](https://php.net/)
 [![License](https://img.shields.io/packagist/l/oliverthiele/ot-gallery.svg)](LICENSE)
@@ -64,8 +64,8 @@ OT Gallery takes a different approach:
 
 | Requirement | Version                   |
 |-------------|---------------------------|
-| TYPO3       | 13.4+                     |
-| PHP         | 8.3+                      |
+| TYPO3       | 14.3+                     |
+| PHP         | 8.4+                      |
 | Bootstrap   | 5.x                       |
 | Fancybox    | 5.x (if lightbox enabled) |
 

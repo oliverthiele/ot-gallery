@@ -11,6 +11,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Exception\SiteNotFoundException;
 use TYPO3\CMS\Core\Resource\File;
@@ -18,7 +19,6 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
-use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Extbase\Service\ImageService;
 
@@ -33,7 +33,7 @@ final class ProcessGalleryImagesCommand extends Command
         private readonly ImageService $imageService,
         private readonly ResourceFactory $resourceFactory,
         private readonly FileRepository $fileRepository,
-        private readonly FlexFormService $flexFormService,
+        private readonly FlexFormTools $flexFormTools,
         private readonly SiteFinder $siteFinder,
         private readonly ConnectionPool $connectionPool,
     ) {
@@ -198,7 +198,7 @@ final class ProcessGalleryImagesCommand extends Command
     {
         $flexSettings = [];
         if (!empty($record['pi_flexform'])) {
-            $data = $this->flexFormService->convertFlexFormContentToArray((string)$record['pi_flexform']);
+            $data = $this->flexFormTools->convertFlexFormContentToArray((string)$record['pi_flexform']);
             $flexSettings = $data['settings'] ?? [];
         }
 
