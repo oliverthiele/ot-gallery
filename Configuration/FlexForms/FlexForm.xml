@@ -7,13 +7,13 @@
 
         <sLayout>
             <ROOT>
-                <sheetTitle>LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:flexform.sheet.layout
+                <sheetTitle>ot_gallery.db:flexform.sheet.layout
                 </sheetTitle>
                 <type>array</type>
                 <el>
                     <settings.layout>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_layout
+                            ot_gallery.db:tt_content.tx_otgallery_layout
                         </label>
                         <config>
                             <type>select</type>
@@ -21,19 +21,19 @@
                             <items>
                                 <numIndex index="0">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_layout.grid
+                                        ot_gallery.db:tt_content.tx_otgallery_layout.grid
                                     </label>
                                     <value>grid</value>
                                 </numIndex>
                                 <numIndex index="1">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_layout.masonry
+                                        ot_gallery.db:tt_content.tx_otgallery_layout.masonry
                                     </label>
                                     <value>masonry</value>
                                 </numIndex>
                                 <numIndex index="2">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_layout.justified
+                                        ot_gallery.db:tt_content.tx_otgallery_layout.justified
                                     </label>
                                     <value>justified</value>
                                 </numIndex>
@@ -44,7 +44,7 @@
 
                     <settings.aspectRatio>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_aspect_ratio
+                            ot_gallery.db:tt_content.tx_otgallery_aspect_ratio
                         </label>
                         <onChange>reload</onChange>
                         <config>
@@ -53,7 +53,7 @@
                             <items>
                                 <numIndex index="0">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_aspect_ratio.free
+                                        ot_gallery.db:tt_content.tx_otgallery_aspect_ratio.free
                                     </label>
                                     <value>free</value>
                                 </numIndex>
@@ -80,7 +80,7 @@
 
                     <settings.rendering>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_rendering
+                            ot_gallery.db:tt_content.tx_otgallery_rendering
                         </label>
                         <displayCond>FIELD:settings.aspectRatio:!=:free</displayCond>
                         <config>
@@ -89,19 +89,19 @@
                             <items>
                                 <numIndex index="0">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_rendering.cover
+                                        ot_gallery.db:tt_content.tx_otgallery_rendering.cover
                                     </label>
                                     <value>cover</value>
                                 </numIndex>
                                 <numIndex index="1">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_rendering.contain
+                                        ot_gallery.db:tt_content.tx_otgallery_rendering.contain
                                     </label>
                                     <value>contain</value>
                                 </numIndex>
                                 <numIndex index="2">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_rendering.fill
+                                        ot_gallery.db:tt_content.tx_otgallery_rendering.fill
                                     </label>
                                     <value>fill</value>
                                 </numIndex>
@@ -112,7 +112,7 @@
 
                     <settings.columnsOverride>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_columns_override
+                            ot_gallery.db:tt_content.tx_otgallery_columns_override
                         </label>
                         <config>
                             <type>check</type>
@@ -127,7 +127,7 @@
 
                     <settings.columnsXs>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_columns_xs
+                            ot_gallery.db:tt_content.tx_otgallery_columns_xs
                         </label>
                         <displayCond>FIELD:settings.columnsOverride:=:1</displayCond>
                         <config>
@@ -143,7 +143,7 @@
 
                     <settings.columnsSm>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_columns_sm
+                            ot_gallery.db:tt_content.tx_otgallery_columns_sm
                         </label>
                         <displayCond>FIELD:settings.columnsOverride:=:1</displayCond>
                         <config>
@@ -159,7 +159,7 @@
 
                     <settings.columnsMd>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_columns_md
+                            ot_gallery.db:tt_content.tx_otgallery_columns_md
                         </label>
                         <displayCond>FIELD:settings.columnsOverride:=:1</displayCond>
                         <config>
@@ -175,7 +175,7 @@
 
                     <settings.columnsLg>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_columns_lg
+                            ot_gallery.db:tt_content.tx_otgallery_columns_lg
                         </label>
                         <displayCond>FIELD:settings.columnsOverride:=:1</displayCond>
                         <config>
@@ -191,7 +191,7 @@
 
                     <settings.columnsXl>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_columns_xl
+                            ot_gallery.db:tt_content.tx_otgallery_columns_xl
                         </label>
                         <displayCond>FIELD:settings.columnsOverride:=:1</displayCond>
                         <config>
@@ -207,7 +207,7 @@
 
                     <settings.columnsXxl>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_columns_xxl
+                            ot_gallery.db:tt_content.tx_otgallery_columns_xxl
                         </label>
                         <displayCond>FIELD:settings.columnsOverride:=:1</displayCond>
                         <config>
@@ -227,14 +227,14 @@
 
         <sSort>
             <ROOT>
-                <sheetTitle>LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:flexform.sheet.sort
+                <sheetTitle>ot_gallery.db:flexform.sheet.sort
                 </sheetTitle>
                 <type>array</type>
                 <el>
 
                     <settings.sortField>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_sort_field
+                            ot_gallery.db:tt_content.tx_otgallery_sort_field
                         </label>
                         <config>
                             <type>select</type>
@@ -242,19 +242,19 @@
                             <items>
                                 <numIndex index="0">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_sort_field.name
+                                        ot_gallery.db:tt_content.tx_otgallery_sort_field.name
                                     </label>
                                     <value>name</value>
                                 </numIndex>
                                 <numIndex index="1">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_sort_field.date
+                                        ot_gallery.db:tt_content.tx_otgallery_sort_field.date
                                     </label>
                                     <value>date</value>
                                 </numIndex>
                                 <numIndex index="2">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_sort_field.custom
+                                        ot_gallery.db:tt_content.tx_otgallery_sort_field.custom
                                     </label>
                                     <value>custom</value>
                                 </numIndex>
@@ -265,7 +265,7 @@
 
                     <settings.sortDirection>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_sort_direction
+                            ot_gallery.db:tt_content.tx_otgallery_sort_direction
                         </label>
                         <config>
                             <type>select</type>
@@ -273,13 +273,13 @@
                             <items>
                                 <numIndex index="0">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_sort_direction.asc
+                                        ot_gallery.db:tt_content.tx_otgallery_sort_direction.asc
                                     </label>
                                     <value>asc</value>
                                 </numIndex>
                                 <numIndex index="1">
                                     <label>
-                                        LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_sort_direction.desc
+                                        ot_gallery.db:tt_content.tx_otgallery_sort_direction.desc
                                     </label>
                                     <value>desc</value>
                                 </numIndex>
@@ -290,10 +290,10 @@
 
                     <settings.itemsPerPage>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_items_per_page
+                            ot_gallery.db:tt_content.tx_otgallery_items_per_page
                         </label>
                         <description>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_items_per_page.description
+                            ot_gallery.db:tt_content.tx_otgallery_items_per_page.description
                         </description>
                         <config>
                             <type>number</type>
@@ -311,14 +311,14 @@
 
         <sFeatures>
             <ROOT>
-                <sheetTitle>LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:flexform.sheet.features
+                <sheetTitle>ot_gallery.db:flexform.sheet.features
                 </sheetTitle>
                 <type>array</type>
                 <el>
 
                     <settings.lightbox>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_lightbox
+                            ot_gallery.db:tt_content.tx_otgallery_lightbox
                         </label>
                         <config>
                             <type>check</type>
@@ -335,7 +335,7 @@
 
                     <settings.figcaptionTitle>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_figcaption_title
+                            ot_gallery.db:tt_content.tx_otgallery_figcaption_title
                         </label>
                         <config>
                             <type>check</type>
@@ -350,7 +350,7 @@
 
                     <settings.figcaptionDescription>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_figcaption_description
+                            ot_gallery.db:tt_content.tx_otgallery_figcaption_description
                         </label>
                         <config>
                             <type>check</type>
@@ -365,7 +365,7 @@
 
                     <settings.figcaptionCopyright>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_figcaption_copyright
+                            ot_gallery.db:tt_content.tx_otgallery_figcaption_copyright
                         </label>
                         <config>
                             <type>check</type>
@@ -380,7 +380,7 @@
 
                     <settings.figcaptionVisuallyHidden>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_figcaption_visually_hidden
+                            ot_gallery.db:tt_content.tx_otgallery_figcaption_visually_hidden
                         </label>
                         <config>
                             <type>check</type>
@@ -397,7 +397,7 @@
 
                     <settings.menuTitle>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_menu_title
+                            ot_gallery.db:tt_content.tx_otgallery_menu_title
                         </label>
                         <config>
                             <type>check</type>
@@ -412,7 +412,7 @@
 
                     <settings.menuDescription>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_menu_description
+                            ot_gallery.db:tt_content.tx_otgallery_menu_description
                         </label>
                         <config>
                             <type>check</type>
@@ -427,7 +427,7 @@
 
                     <settings.menuCopyright>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_menu_copyright
+                            ot_gallery.db:tt_content.tx_otgallery_menu_copyright
                         </label>
                         <config>
                             <type>check</type>
@@ -442,7 +442,7 @@
 
                     <settings.enableDownload>
                         <label>
-                            LLL:EXT:ot_gallery/Resources/Private/Language/locallang_db.xlf:tt_content.tx_otgallery_enable_download
+                            ot_gallery.db:tt_content.tx_otgallery_enable_download
                         </label>
                         <config>
                             <type>check</type>
